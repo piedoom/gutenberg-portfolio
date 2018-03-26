@@ -11,27 +11,33 @@
 
       <!-- css -->
       <link rel="stylesheet" href="/reset.css">
+      <link rel="stylesheet" href="/main.css">
+
+      <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Roboto" rel="stylesheet"> 
     </head>
 
     <body>
 
-    <h1> my site </h1>
-
     {% block menu %}
-      {% set pages = get_section(path="pages/_index.md") %}
+      <nav>
+        <div class='links'>
+          {% set pages = get_section(path="pages/_index.md") %}
 
-      <!-- home page -->
-      <a href="/">Projects</a>
+          <!-- home page -->
+          <a href="/">Projects</a>
 
-      <!-- loop through other pages -->
-      {% for page in pages.pages %}
-        <a href="{{page.permalink}}" >
-          {{page.title}}
-        </a>
-      {% endfor %}
+          <!-- loop through other pages -->
+          {% for page in pages.pages %}
+            <a href="{{page.permalink}}" >
+              {{page.title}}
+            </a>
+          {% endfor %}
+        </div>
+      </nav>
     {% endblock menu %}
 
     {% block content %}
+      <h1> my site </h1>
       {% set projects = get_section(path="projects/_index.md") %}
       {% for project in projects.pages %}
         <a href="{{project.permalink}}">
