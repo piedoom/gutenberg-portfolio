@@ -1,0 +1,10 @@
+name = "portfolio"
+description = "theme for use in design and art portfolios"
+license = "BSD"
+homepage = "https://guthub.com/piedoom/gutenberg-portfolio"
+
+[author]
+name = "doomy"
+homepage = "https://alexanderlozada.com"
+
+[extra]
