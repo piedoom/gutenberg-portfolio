@@ -11,12 +11,33 @@
 
       <!-- css -->
       <link rel="stylesheet" href="/reset.css">
-
     </head>
 
     <body>
 
+    <h1> my site </h1>
+
+    {% block menu %}
+      {% set pages = get_section(path="pages/_index.md") %}
+
+      <!-- home page -->
+      <a href="/">Projects</a>
+
+      <!-- loop through other pages -->
+      {% for page in pages.pages %}
+        <a href="{{page.permalink}}" >
+          {{page.title}}
+        </a>
+      {% endfor %}
+    {% endblock menu %}
+
     {% block content %}
+      {% set projects = get_section(path="projects/_index.md") %}
+      {% for project in projects.pages %}
+        <a href="{{project.permalink}}">
+          {{project.title}}
+        </a>
+      {% endfor %}
     {% endblock content %}
 
     </body>
