@@ -3,14 +3,21 @@
 
 nav {
 	display: block;
+	position: fixed;
 	width: 100%;
 	border-bottom: 1px $light_gray solid;
+	z-index: 100;
+	background: white;
 	.links {
 		padding: 12px 48px;
 		max-width: 900px;
-		margin: 0 auto;
+		margin: 16px auto;
 		a {
 			text-decoration: none;
+			font-family: 'Roboto', sans-serif;
+			color: $text;
+			font-size: 18px;
+			margin-right: 23px;
 		}
 	}
 }
@@ -37,9 +44,12 @@ small {
 	margin: 4px;
 }
 
+h1,h2,h3,h4,h5,h6 {
+	margin-bottom: 32px;
+}
+
 h1 {
 	font-size: 72px;
-	margin-bottom: 24px;
 }
 
 h2 {
@@ -88,6 +98,7 @@ small {
 .container {
 	max-width: 900px;
 	padding-top: 48px;
+	padding-bottom: 48px;
 	margin: 0 auto;
 	* {
 		padding-left: 96px;
@@ -103,11 +114,61 @@ small {
 	}
 	img {
 		width: 100%;
-		padding-top: 24px;
-		padding-bottom: 36px;
+		display: block;
+		border-radius: 4px;
+		margin-top: 48px;
+		margin-bottom: 48px;
+	}
+
+	.album img {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.album, img {
 		padding-left: 0;
 		padding-right: 0;
-		display: block;
+	}
+
+	.album {
+		margin-top: 48px;
+		margin-bottom: 48px;
+	}
+
+	h1 {
+		font-size: 48px;
+	}
+
+	h2 {
+		font-size: 36px;
+	}
+
+	h3 {
+		font-size: 24px;
+	}
+
+	h4 {
+		font-size: 18px;
+	}
+
+	h5 {
+		font-size: 16px;
+	}
+
+	h6 {
+	font-size: 12px;
+	}
+
+	p {
+		margin-bottom: 24px;
 	}
 }
 
+.medium-zoom-overlay{
+	z-index: 200;
+	background-color: rgba(0,0,0,0.9) !important;
+}
+
+.medium-zoom-image--open{
+	z-index: 300;
+}

@@ -40,16 +40,18 @@
           {% endfor %}
         </div>
       </nav>
+      <div style="height: 74px; width: 100%"></div>
     {% endblock menu %}
 
     {% block content %}
-      <h1> my site </h1>
-      {% set projects = get_section(path="projects/_index.md") %}
-      {% for project in projects.pages %}
-        <a href="{{project.permalink}}">
-          {{project.title}}
-        </a>
-      {% endfor %}
+      <div class="container">
+        {% set projects = get_section(path="projects/_index.md") %}
+        {% for project in projects.pages %}
+          <a href="{{project.permalink}}">
+            {{project.title}}
+          </a>
+        {% endfor %}
+      </div>
     {% endblock content %}
 
     <script type="text/javascript">
@@ -77,6 +79,10 @@
         Macy({  
           container: ".macy-"+guid,
           columns: numColumns,
+          margin: {
+            x: 12,
+            y: 12  
+          },
           breakAt: {
             768: {
               columns: numColumnsTablet
