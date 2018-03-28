@@ -1,3 +1,5 @@
+@import 'colors.scss';
+
 .scrim-container {
     box-sizing: border-box;
     margin-left: 18px;
@@ -19,6 +21,7 @@
             min-height: 30px;
             border-radius: 1000px;
             z-index: 75;
+            transition: 0.05s height ease;
         }
     }
 
@@ -47,4 +50,23 @@
     background: #e5e5e8;
     border-width: 8px;
     border-color: white;
+}
+
+.scrim-title {
+    position: absolute;
+    color: #d9d9db;
+    font-family: 'Roboto', sans-serif;
+    transform: rotate(-12deg) translate(0px,-20px);
+    transition: 0.2s transform ease;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.scrim-title.past {
+    color: $text;
+    transform: rotate(0deg) translate(-10px,-4px);
+}
+
+.scrim-progress-bar.full {
+    height: 100% !important;
 }
