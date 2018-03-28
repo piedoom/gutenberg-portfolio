@@ -11,13 +11,16 @@
 
     <!-- css -->
     <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/scrim.css">
     <link rel="stylesheet" href="/main.css">
 
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Roboto|Oswald"" rel="stylesheet"> 
 
+    <script type="text/javascript" src="/js/rustish.js"></script>
     <script type="text/javascript" src="/js/macy.min.js"></script>
-
     <script type="text/javascript" src="/js/medium-zoom.min.js"></script>
+    <script type="text/javascript" src="/js/scrim.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 
     
   </head>
@@ -27,8 +30,11 @@
     {% block menu %}
       <nav>
         <div class='links'>
+          <a href="/">
+            <img src='/media/logo.png' class='logo'/>
+          </a>
+          <div class='spacer'></div>
           {% set pages = get_section(path="pages/_index.md") %}
-
           <!-- home page -->
           <a href="/">Projects</a>
 

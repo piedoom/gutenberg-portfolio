@@ -1,0 +1,50 @@
+.scrim-container {
+    box-sizing: border-box;
+    margin-left: 18px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: block;
+    .scrim-scroll-bar {
+        height: 100%;
+        box-sizing: border-box;
+        overflow: none;
+        min-width: 2px;
+        border-radius: 1000px;
+        width: 12px;
+        background-color: #f9f9f9;
+        z-index: 50;
+        .scrim-progress-bar {
+            width: 100%;
+            background-color: #e5e5e8;
+            min-height: 30px;
+            border-radius: 1000px;
+            z-index: 75;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        display: none;
+    }
+}
+
+.scrim-point {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin-left: -6px;
+    box-sizing: border-box;
+    border: 1px solid #d9d9db;
+    border-radius: 1000px;
+    z-index: 100;
+    background: rgba(1,1,1,0);
+    cursor: pointer;
+    transition: 
+        0.2s background ease, 
+        0.2s border ease;
+}
+
+.scrim-point.past {
+    background: #e5e5e8;
+    border-width: 8px;
+    border-color: white;
+}

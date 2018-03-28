@@ -12,12 +12,22 @@ nav {
 		padding: 12px 48px;
 		max-width: 900px;
 		margin: 16px auto;
+		// make room for logo
+		.spacer {
+			display: inline-block;
+			height: 100%;
+			width: 70px;
+		}
 		a {
 			text-decoration: none;
 			font-family: 'Roboto', sans-serif;
 			color: $text;
 			font-size: 18px;
 			margin-right: 23px;
+		}
+		.logo {
+			position: absolute;
+			top: 6px;
 		}
 	}
 }
@@ -162,6 +172,14 @@ small {
 	p {
 		margin-bottom: 24px;
 	}
+}
+
+.scrim-container{
+	height: calc(100vh - 74px);
+	width: 100px;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
 }
 
 .medium-zoom-overlay{
