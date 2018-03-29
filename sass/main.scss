@@ -1,6 +1,30 @@
 @import 'colors.scss';
 @import 'sizes.scss';
 
+// paragraphs and lists
+p, ul, ol {
+	font-family: 'IBM Plex Serif', serif;
+	font-weight: 300;
+	line-height: 1.7;
+	font-size: 16px;
+	text-align: justify;
+	margin-bottom: 16px;
+}
+
+ul, ol {
+	p {
+		padding: 0 0 !important;
+	}
+	@media (max-width: $mobile){
+		list-style-position: inside;
+	}
+}
+
+li {
+	padding: 6px 0 !important;
+}
+
+
 nav {
 	display: block;
 	position: fixed;
@@ -110,7 +134,7 @@ small {
 	padding-top: 48px;
 	padding-bottom: 48px;
 	margin: 0 auto;
-	* {
+	> * {
 		padding-left: 96px;
 		padding-right: 96px;
 		@media screen and (max-width: $tablet) {
@@ -149,6 +173,10 @@ small {
 		font-size: 48px;
 	}
 
+	.big {
+		font-size: 72px;
+	}
+
 	h2 {
 		font-size: 36px;
 	}
@@ -171,6 +199,33 @@ small {
 
 	p {
 		margin-bottom: 24px;
+	}
+	.image-break {
+		height: 300px;
+		position: absolute;
+		left: 200px;
+		right: 200px;
+		z-index: -100;
+		background: no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		@media screen and (max-width: 1150px) {
+			display: none !important;
+		}
+	}
+	.image-break-spacer {
+		height: 300px;
+		visibility: hidden;
+		background: no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		@media screen and (max-width: 1150px) {
+			visibility: visible;
+		}
 	}
 }
 
