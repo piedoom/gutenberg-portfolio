@@ -52,11 +52,15 @@
 
     {% block content %}
       <div class="container">
+        <p> Sorry for the mess! We're still a bit under construction.</p>
         {% set projects = get_section(path="projects/_index.md") %}
         {% for project in projects.pages %}
-          <a href="{{project.permalink}}">
-            {{project.title}}
-          </a>
+          <div class="project">
+            <a href="{{project.permalink}}">
+              {{project.title}}
+            </a>
+          </div>
+          <br>
         {% endfor %}
       </div>
     {% endblock content %}
