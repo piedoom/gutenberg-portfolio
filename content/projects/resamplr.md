@@ -1,6 +1,8 @@
 +++
 title = "Resamplr"
 date = 2018-03-25
+[extra]
+image = ""
 +++
 
 {{ key(title="Introduction") }}
