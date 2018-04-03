@@ -2,6 +2,7 @@ name = "portfolio"
 description = "theme for use in design and art portfolios"
 license = "BSD"
 homepage = "https://guthub.com/piedoom/gutenberg-portfolio"
+min_version = "0.3.3"
 
 [author]
 name = "doomy"
