@@ -249,6 +249,25 @@ small {
 		margin-right: auto !important;
 		display: block
 	}
+
+	// thing that goes at the top of a post
+	.alert {
+		box-sizing: border-box;
+		> div.alert-wrapper {
+			outline: 1px solid $light_gray;
+			box-sizing: border-box;
+			padding: 32px;
+			h1 {
+				margin-top: 0;
+				font-size: 32px;
+				margin-bottom: 24px;
+			}
+			p {
+				margin-bottom: 0;
+				color: $gray;
+			}
+		}
+	}
 }
 
 .project {
