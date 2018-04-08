@@ -135,6 +135,10 @@ small {
 	padding-top: 48px;
 	padding-bottom: 48px;
 	margin: 0 auto;
+
+	@media screen and (max-width: $desktop) {
+		max-width: 900px;
+	}
 	
 	> * {
 		@media screen and (min-width: $desktop) {
@@ -154,10 +158,6 @@ small {
 			padding-right: 24px;
 		}
 		
-	}
-
-	@media screen and (max-width: $desktop) {
-		max-width: 900px;
 	}
 	
 	img {
