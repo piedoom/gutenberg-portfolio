@@ -63,7 +63,6 @@
 
     {% block content %}
       <div class="container">
-        <p> Sorry for the mess! We're still a bit under construction.</p>
         {% set projects = get_section(path="projects/_index.md") %}
         {% for project in projects.pages %}
           <a class="project" href="{{project.permalink}}">
