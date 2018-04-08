@@ -69,7 +69,9 @@
           <a class="project" href="{{project.permalink}}">
             
             <div class="thumb" style="background-image: url(/media/projects/{{project.extra.image}})">
-              <h1>{{project.title}}</h1>
+              <div class="popup">
+                <h1>{{project.title}}</h1>
+              </div>
             </div>
           </a>
         {% endfor %}
@@ -84,10 +86,10 @@
 
         var numImages = el.childElementCount;
         var numColumns = (function() {
-          if (numImages < 3)
+          if (numImages < 4)
             return numImages;
           else
-            return 3
+            return 4
         })();
         var numColumnsTablet = (function() {
           if (numImages < 2)
