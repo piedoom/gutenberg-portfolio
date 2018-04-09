@@ -18,6 +18,10 @@ var ScrimTool = (function(){
                 progressBar.classList.add("scrim-progress-bar")
 
                 scrollBar.appendChild(progressBar);
+                if (this.container === null) {
+                    return;
+                }
+
                 this.container.appendChild(scrollBar);
 
                 // track position

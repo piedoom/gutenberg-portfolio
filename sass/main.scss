@@ -283,8 +283,34 @@ small {
 	}
 }
 
+.projects {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr; 
+
+	@media screen and (max-width: 1150px) {
+		grid-template-columns: 100% !important;
+		.project {
+			grid-column-start: 1 !important;
+			grid-column-end: span 3 !important;
+		} 
+	}
+	
+}
+
 .project {
 	text-decoration: none;
+	display: block;
+	width: 100%; 
+	padding: 0 !important;
+
+	/*
+	grid-column-end: span 1;
+
+	&:nth-child(3n+3) {
+		grid-column-start: 1;
+		grid-column-end: span 3;
+	}
+	*/
 	
 	.thumb {
 		width: 100%;
@@ -293,8 +319,14 @@ small {
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		background-size: cover;
+		height: 100%;
 		.popup {
+			display: flex;
+			align-items: center;
+  			justify-content: center;
+
 			transition: background-color 0.3s ease;
+			height: 100%;
 			background: rgba(0,0,0,0);
 			&:hover {
 				background-color: rgba(0,0,0,0.4);
@@ -303,10 +335,11 @@ small {
 				}
 			}
 			h1 {
-				padding: 96px 0;
+				width: 100%;
+				
 				color: white;
 				text-align: center;
-				margin: 12px 0;
+				margin: 0;
 				opacity: 0;
 				transition: opacity 0.3s ease;
 			}
