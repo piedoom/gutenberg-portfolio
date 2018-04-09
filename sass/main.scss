@@ -302,15 +302,7 @@ small {
 	display: block;
 	width: 100%; 
 	padding: 0 !important;
-
-	/*
-	grid-column-end: span 1;
-
-	&:nth-child(3n+3) {
-		grid-column-start: 1;
-		grid-column-end: span 3;
-	}
-	*/
+	position: relative;
 	
 	.thumb {
 		width: 100%;
@@ -320,10 +312,18 @@ small {
 		-o-background-size: cover;
 		background-size: cover;
 		height: 100%;
+		.video-fader {
+			z-index: 75;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
 		.popup {
 			display: flex;
 			align-items: center;
-  			justify-content: center;
+			justify-content: center;
+			overflow: hidden;
+			position: relative;
 
 			transition: background-color 0.3s ease;
 			height: 100%;
@@ -333,15 +333,22 @@ small {
 				h1 {
 					opacity: 1;
 				}
+				.video-fader {
+					background-color: rgba(0,0,0,0.4);
+				}
 			}
 			h1 {
 				width: 100%;
-				
+				z-index: 100;
 				color: white;
 				text-align: center;
 				margin: 0;
 				opacity: 0;
 				transition: opacity 0.3s ease;
+			}
+			video {
+				position: absolute;
+				height: 100%;
 			}
 		}
 	}
