@@ -7,7 +7,7 @@
 
         new Gridder({
             container: document.querySelector(".projects"),
-            height: 350,
+            height: 450,
             childClass: ".project",
             verticalMargin: 16,
             horizontalMargin: 16
