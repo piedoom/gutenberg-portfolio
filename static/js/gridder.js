@@ -11,7 +11,6 @@ var Gridder = function(options) {
 
     // set the container to flex
     this.options.container.style.display = "grid";
-    this.options.container.style.gridTemplateColumns = "33.33% 33.33% 33.33%";
     this.options.container.style.gridColumnGap = this.options.horizontalMargin + "px";
     this.options.container.style.gridRowGap = this.options.verticalMargin + "px";
 
@@ -23,9 +22,9 @@ var Gridder = function(options) {
 
     for (var i = 0; i < this.children.length; i+= 3) {
 
-        var firstSpan = (flip ? 1 : 2);
-        var secondSpan = (flip ? 2 : 1);
-        var secondStart = (flip ? 2 : 3);
+        var firstSpan = (flip ? 2 : 3);
+        var secondSpan = (flip ? 3 : 2);
+        var secondStart = (flip ? 3 : 4);
 
         var els = [ this.children[i] ];
         els[0].style.gridColumnStart = "1";
@@ -43,7 +42,7 @@ var Gridder = function(options) {
         if (typeof(this.children[i + 2]) !== "undefined" ) {
             els.push(this.children[i + 2])
             els[2].style.gridColumnStart = "1";
-            els[2].style.gridColumnEnd = "span 3"
+            els[2].style.gridColumnEnd = "span 5"
         }    
     
         // apply to all elements in queue 

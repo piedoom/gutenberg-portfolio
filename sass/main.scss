@@ -285,13 +285,13 @@ small {
 
 .projects {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr; 
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
 
 	@media screen and (max-width: 1150px) {
 		grid-template-columns: 100% !important;
 		.project {
 			grid-column-start: 1 !important;
-			grid-column-end: span 3 !important;
+			grid-column-end: span 5 !important;
 		} 
 	}
 	
