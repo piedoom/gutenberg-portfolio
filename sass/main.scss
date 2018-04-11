@@ -292,6 +292,7 @@ small {
 		.project {
 			grid-column-start: 1 !important;
 			grid-column-end: span 5 !important;
+			height: 450px;
 		} 
 	}
 	
@@ -303,6 +304,7 @@ small {
 	width: 100%; 
 	padding: 0 !important;
 	position: relative;
+	background-color: $light-gray;
 	
 	.thumb {
 		width: 100%;
@@ -325,7 +327,7 @@ small {
 			overflow: hidden;
 			position: relative;
 
-			transition: background-color 0.3s ease;
+			transition: background 0.3s ease;
 			height: 100%;
 			background: rgba(0,0,0,0);
 			&:hover {

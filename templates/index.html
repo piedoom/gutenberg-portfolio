@@ -67,14 +67,15 @@
         {% for project in projects.pages %}
           <a class="project" href="{{project.permalink}}">
             
-            <div class="thumb" style="background-image: url(/media/projects/{{project.extra.image}})">
+            <div class="thumb" {% if project.extra.image %} style="background-image: url(/media/projects/{{project.extra.image}})" {% endif %} >
               <!-- video, if available -->
               <div class="popup">
                   {% if project.extra.video %}
                     <video src="/media/projects/{{project.extra.video}}" autoplay muted loop></video>
                     <div class="video-fader"></div>
                   {% endif %}
-                <h1>{{project.title}}</h1>
+                {% if project.extra.no_title_on_hover %} {% else %}
+                <h1>{{project.title}}</h1> {% endif %}
               </div>
             </div>
           </a>
