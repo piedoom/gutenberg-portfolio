@@ -3,13 +3,22 @@
 
 // paragraphs and lists
 p, ul, ol {
-	font-family: 'IBM Plex Serif', serif;
 	font-weight: 300;
-	line-height: 1.7;
-	font-size: 16px;
+	line-height: 1.6;
+	font-size: 18px;
 	text-align: justify;
-	margin-bottom: 16px;
+	margin-bottom: 18px;
 }
+
+p {
+	text-align: justify;
+}
+
+p,nav,ul,ol,li {	
+    font-family: 'Barlow', sans-serif;
+    color: $text;
+}
+
 
 ul, ol {
 	p {
@@ -43,7 +52,7 @@ nav {
 		}
 		a {
 			text-decoration: none;
-			font-family: 'Roboto', sans-serif;
+			font-family: 'Barlow', sans-serif;
 			color: $text;
 			font-size: 18px;
 			margin-right: 23px;
@@ -63,17 +72,13 @@ body {
 // typeography 
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Oswald', sans-serif;
-    color: $text;
-}
-
-p,nav,ul,ol,li {	
-    font-family: 'IBM Plex Serif', serif;
+	font-family: 'Barlow', sans-serif;
+	font-weight: 600;
     color: $text;
 }
 
 small {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Barlow', sans-serif;
 	color: $text;
 	margin: 4px;
 }
@@ -105,12 +110,6 @@ h5 {
 
 h6 {
 	font-size: 16px;
-}
-
-p {
-	font-size: 16px;
-	line-height: 24px;
-	text-align: justify;
 }
 
 small {
@@ -164,11 +163,16 @@ small {
 		width: 100%;
 		display: block;
 		border-radius: 4px;
-		margin-top: 48px;
+		margin-top: 72px;
 		margin-bottom: 48px;
 	}
 	video {
 		border-radius: 4px;
+		margin-top: 72px;
+		margin-bottom: 48px;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		display: block
 	}
 
 	.album img {
@@ -182,7 +186,7 @@ small {
 	}
 
 	.album {
-		margin-top: 48px;
+		margin-top: 72px;
 		margin-bottom: 48px;
 	}
 
@@ -255,12 +259,6 @@ small {
 			width: 100%;
 			height: 100%;
 		}
-	}
-
-	video {
-		margin-left: auto !important;
-		margin-right: auto !important;
-		display: block
 	}
 
 	// thing that goes at the top of a post
@@ -351,6 +349,7 @@ small {
 			video {
 				position: absolute;
 				height: 100%;
+				margin: 0;
 			}
 		}
 	}
