@@ -388,7 +388,7 @@ small {
 
 .zoom, video {
 	box-shadow: 4px 5px 60px 0px rgba(0,0,0,0.15);
-	transition: all 0.3s ease !important;
+	// transition: all 0.3s ease !important;
 	&:hover {
 		box-shadow: 4px 10px 90px 0px rgba(0,0,0,0.1);
 	}
