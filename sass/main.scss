@@ -84,32 +84,37 @@ small {
 }
 
 h1,h2,h3,h4,h5,h6 {
-	margin-bottom: 32px;
 	margin-top: 72px;
 }
 
 h1 {
 	font-size: 72px;
+	margin-bottom: 32px;
 }
 
 h2 {
 	font-size: 48px;
+	margin-bottom: 32px;
 }
 
 h3 {
 	font-size: 36px;
+	margin-bottom: 24px;
 }
 
 h4 {
 	font-size: 24px;
+	margin-bottom: 24px;
 }
 
 h5 {
 	font-size: 18px;
+	margin-bottom: 18px;
 }
 
 h6 {
 	font-size: 16px;
+	margin-bottom: 16px;
 }
 
 small {
@@ -279,6 +284,24 @@ small {
 			}
 		}
 	}
+
+	.grid {
+		display: grid;
+		margin-top: 72px;
+		margin-bottom: 48px;
+		// default two section grid
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 48px;
+		grid-row-gap: 48px;
+		&>* {
+			grid-column: auto span 1;
+			display: block;
+		}
+		@media screen and (max-width: 1150px) {
+			grid-template-columns: 100% !important;
+			grid-row-gap: 0;
+		}
+	}
 }
 
 .projects {
@@ -361,6 +384,14 @@ small {
 	position: fixed;
 	left: 0px;
 	bottom: 0px;
+}
+
+.zoom, video {
+	box-shadow: 4px 5px 60px 0px rgba(0,0,0,0.15);
+	transition: all 0.3s ease !important;
+	&:hover {
+		box-shadow: 4px 10px 90px 0px rgba(0,0,0,0.1);
+	}
 }
 
 .medium-zoom-overlay{

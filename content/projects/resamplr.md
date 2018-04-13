@@ -18,6 +18,10 @@ I've grown up as a musician - I have somewhere around a decade of classical pian
 
 I went through several reditions of my desired sound player, before settling on a part-player, part-info display.  The tricky part was making something that was functional on mobile, but not overly spacious on widescreen desktops.  The last three designs showcase my favorite version on thre different screen sizes.
 
+{% grid(type="image", path="resamplr/audioplayer.png", header="asd") %}
+    hello
+{% end %}
+
 I'm currently building this app.  I have quite a bit done, but there's still miles to go.  I'm using Rails 5, a little HTML and a lot of Javascript.  Building something from start to finish - although rewarding - is very difficult.  It helps to have a teammember by your side, so I've enlisted one of my very bright friends to help me create companion software for my website's API.
 
 {{ key(title="Audio Graphics") }}

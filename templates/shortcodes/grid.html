@@ -1,0 +1,48 @@
+<div class="grid" style='grid-template-columns: 1fr 1fr 
+{% if format %} 
+    {% if format == "large" %} 
+        1fr
+    {% endif %} 
+{% endif %};
+{% if format %}
+    {% if format == "large" %} 
+        padding-left: 24px !important; 
+        padding-right: 24px !important; 
+    {% endif %} 
+{% endif %}'>
+    <div>
+        <h3> {{ header }} </h3>
+        <p> {{ body }} </p>
+    </div>
+    <div style='{% if format %} 
+            {% if format == "large" %}
+                grid-column-end: span 2;
+            {% endif %}
+        {% endif %}
+        '>
+        {% if type == "image" %}
+            <img class="zoom" src="/media/projects/{{path}}"/>
+        {% endif %}
+
+        {% if type == "video" %}
+        <video src="/media/projects/{{path}}" autoplay {% if controls %}controls{% endif %} muted loop 
+            style='
+                {% if max %}
+                    {{max}}
+                {% else %}
+                    100%
+                {% endif %}; 
+                padding: 0; 
+                box-sizing: border-box; 
+                {% if format %}
+                    {% if format != "large" %}
+                        max-width: 400px;
+                    {% else %}
+                        width: 100%;
+                    {% endif %}
+                {% endif %}
+                '>
+        </video>
+        {% endif %}
+    </div>
+</div>

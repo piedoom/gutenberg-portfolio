@@ -4,6 +4,10 @@ var Gridder = function(options) {
     // set default options
     this.options = options;
     this.options.container = options.container || document.querySelector("gridder-container");
+
+    if (this.options.container == null)
+        return;
+
     this.options.height = options.height || 350;
     this.options.childClass = options.childClass || this.options.container.querySelectorAll("gridder-child");
     this.options.verticalMargin = options.verticalMargin || 16;
