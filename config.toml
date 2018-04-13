@@ -11,3 +11,4 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 portfolio_tracking_id = "UA-123456-4"
+theme = "dark"

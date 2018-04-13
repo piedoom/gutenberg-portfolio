@@ -15,8 +15,14 @@ p {
 }
 
 p,nav,ul,ol,li {	
-    font-family: 'Barlow', sans-serif;
+	font-family: 'Barlow', sans-serif;
     color: $text;
+}
+
+.dark {
+	p,nav,ul,ol,li {
+		color: $dark_text;
+	}
 }
 
 
@@ -33,7 +39,14 @@ li {
 	padding: 6px 0 !important;
 }
 
-
+.dark {
+	nav {
+		background: $dark_background;
+		a {
+			color: $dark_text;
+		}
+	}
+}
 nav {
 	display: block;
 	position: fixed;
@@ -69,8 +82,17 @@ body {
 	background-color: $background;
 }
 
+body.dark {		
+	background: $dark_background;
+}
+
 // typeography 
 
+.dark {
+	h1,h2,h3,h4,h5,h6,small {
+		color: $dark_text;
+	}
+}
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Barlow', sans-serif;
 	font-weight: 600;
@@ -117,6 +139,11 @@ h6 {
 	margin-bottom: 16px;
 }
 
+.dark {
+	small {
+		color: $dark_gray;
+	}
+}
 small {
 	font-size: 12px;
 	color: $gray;
@@ -319,13 +346,23 @@ small {
 	
 }
 
+.dark {
+	.container {
+		.alert {
+			p {
+				color: $dark_gray !important;
+			}
+		}
+	}
+}
+
 .project {
 	text-decoration: none;
 	display: block;
 	width: 100%; 
 	padding: 0 !important;
 	position: relative;
-	background-color: $light-gray;
+	background-color: $light_gray;
 	
 	.thumb {
 		width: 100%;
@@ -378,6 +415,12 @@ small {
 	}
 }
 
+.dark {
+	.project {
+		background-color: $dark_light_gray;
+	}
+}
+
 .scrim-container{
 	height: calc(100vh - 74px);
 	width: 100px;
@@ -388,6 +431,13 @@ small {
 
 .zoom, video {
 	box-shadow: 4px 5px 60px 0px rgba(0,0,0,0.1);
+}
+
+// dont apply box shadow to album images
+.album {
+	.zoom, .video {
+		box-shadow: none;
+	}
 }
 
 .medium-zoom-overlay{

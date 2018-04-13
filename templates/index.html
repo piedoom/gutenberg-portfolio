@@ -38,7 +38,7 @@
 
   </head>
 
-  <body>
+  <body {% if config.extra.theme %}class='{{config.extra.theme}}'{% endif %}>
     {% block menu %}
       <nav>
         <div class='links'>

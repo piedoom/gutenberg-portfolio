@@ -70,3 +70,27 @@
 .scrim-progress-bar.full {
     height: 100% !important;
 }
+
+.dark {
+    .scrim-container {
+        .scrim-scroll-bar {
+            background-color: lighten($dark_background, 8%);
+        }
+        .scrim-title {
+            color: lighten($dark_background, 20%);
+        }
+        .scrim-title.past {
+            color: lighten($dark_background, 50%);
+        }
+        .scrim-point {
+            border-color: lighten($dark_background, 20%);
+        }
+        .scrim-point.past {
+            border-color: $dark_background;
+            background-color: lighten($dark_background, 20%);
+        }
+        .scrim-progress-bar {
+            background-color: lighten($dark_background, 20%);
+        }
+    }
+}
