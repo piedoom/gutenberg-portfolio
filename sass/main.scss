@@ -253,6 +253,23 @@ small {
 	p {
 		margin-bottom: 24px;
 	}
+
+	strong {
+		font-weight: bold;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	a {
+		color: $accent;
+		font-weight: bold;
+		&:visited {
+			color: darken($accent, 10%);
+		}
+	}
+
 	.image-break {
 		height: 300px;
 		position: absolute;
