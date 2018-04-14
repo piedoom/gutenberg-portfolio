@@ -389,6 +389,15 @@ h1,h2,h3,h4,h5,h6 {
 			opacity: 0;
 			animation: 1s animate-fade-in forwards;
 			animation-delay: 0.1s;
+			@media screen and (max-width: $desktop) {
+				font-size: 96px;
+			}
+			@media screen and (max-width: $tablet) {
+				font-size: 56px;
+			}
+			@media screen and (max-width: $mobile) {
+				font-size: 48px;
+			}
 		}
 	}
 	p {
@@ -418,10 +427,12 @@ h1,h2,h3,h4,h5,h6 {
 
 	@media screen and (max-width: 1150px) {
 		grid-template-columns: 100% !important;
+		grid-gap: 0 !important;
+		grid-row-gap: 16px;
 		.project {
 			grid-column-start: 1 !important;
 			grid-column-end: span 5 !important;
-			height: 450px;
+			height: 350px !important;
 		} 
 	}
 	
