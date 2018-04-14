@@ -17,12 +17,14 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow:400,400i,600" rel="stylesheet">
 
     <script type="text/javascript" src="/js/rustish.js"></script>
+    <script type="text/javascript" src="/js/appear.min.js"></script>
     <script type="text/javascript" src="/js/zenscroll-min.js"></script>
     <script type="text/javascript" src="/js/macy.min.js"></script>
     <script type="text/javascript" src="/js/medium-zoom.min.js"></script>
     <script type="text/javascript" src="/js/scrim.js"></script>
     <script type="text/javascript" src="/js/gridder.js"></script>
     <script type="text/javascript" src="/js/anime.min.js"></script>
+    <script type="text/javascript" src="/js/animate.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     
     {% if config.extra.portfolio_tracking_id %}
@@ -51,6 +53,9 @@
           <!-- home page -->
           <a href="/">Projects</a>
 
+          <!-- email -->
+          <a href="mailto:{{config.extra.portfolio_contact}}">Contact</a>
+
           <!-- loop through other pages -->
           {% for page in pages.pages %}
             <a href="{{page.permalink}}" >
@@ -63,6 +68,16 @@
     {% endblock menu %}
 
     {% block content %}
+
+      <div class="about container">
+        <div class="logotype">
+          <h1>{{config.extra.portfolio_name | safe}}</h1>
+        </div>
+        <div>
+            <p>{{config.extra.portfolio_description}}</p>
+        </div>
+      </div>
+
       <div class="container projects">
         {% set projects = get_section(path="projects/_index.md") %}
         {% for project in projects.pages %}

@@ -12,3 +12,5 @@ highlight_code = true
 # Put all your custom variables here
 portfolio_tracking_id = "UA-123456-4"
 theme = "dark"
+portfolio_name = "Alexander Lozada"
+portfolio_description = "Hi"
