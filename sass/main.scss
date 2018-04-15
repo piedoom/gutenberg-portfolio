@@ -2,12 +2,27 @@
 @import 'sizes.scss';
 
 // paragraphs and lists
+
+// fonts
+p, ul, ol, nav {
+	font-family: 'Merriweather', serif;
+	&.large {
+		font-family: 'Barlow', sans-serif;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Barlow', sans-serif;
+	font-weight: 600;
+    color: $text;
+}
+
 p, ul, ol {
-	font-weight: 300;
 	line-height: 1.6;
 	font-size: 18px;
 	text-align: justify;
 	margin-bottom: 18px;
+	font-weight: 300;
 }
 
 p {
@@ -15,7 +30,6 @@ p {
 }
 
 p,nav,ul,ol,li {	
-	font-family: 'Barlow', sans-serif;
     color: $text;
 }
 
@@ -25,19 +39,6 @@ p,nav,ul,ol,li {
 	}
 }
 
-
-ul, ol {
-	p {
-		padding: 0 0 !important;
-	}
-	@media (max-width: $mobile){
-		list-style-position: inside;
-	}
-}
-
-li {
-	padding: 6px 0 !important;
-}
 
 .dark {
 	nav {
@@ -93,11 +94,6 @@ body.dark {
 		color: $dark_text;
 	}
 }
-h1,h2,h3,h4,h5,h6 {
-	font-family: 'Barlow', sans-serif;
-	font-weight: 600;
-    color: $text;
-}
 
 small {
 	font-family: 'Barlow', sans-serif;
@@ -107,36 +103,31 @@ small {
 
 h1,h2,h3,h4,h5,h6 {
 	margin-top: 72px;
+	margin-bottom: 0.5em;
 }
 
 h1 {
-	font-size: 72px;
-	margin-bottom: 32px;
+	font-size: 96px;
 }
 
 h2 {
-	font-size: 48px;
-	margin-bottom: 32px;
+	font-size: 72px;
 }
 
 h3 {
-	font-size: 36px;
-	margin-bottom: 24px;
+	font-size: 48px;
 }
 
 h4 {
-	font-size: 24px;
-	margin-bottom: 24px;
+	font-size: 36px;
 }
 
 h5 {
-	font-size: 18px;
-	margin-bottom: 18px;
+	font-size: 24px;
 }
 
 h6 {
-	font-size: 16px;
-	margin-bottom: 16px;
+	font-size: 18px;
 }
 
 .dark {
@@ -159,6 +150,37 @@ small {
 		margin-bottom: 2px;
 	}
 }
+
+ol li {
+	counter-increment: list;
+  	list-style-type: none;
+	position: relative;
+	&:before {
+		color: $accent;
+		content: counter(list);
+		left: -2em;
+		position: absolute;
+		text-align: right;
+		width: 26px;
+		font-weight: bold;
+		font-family: 'Barlow', sans-serif;
+	}
+	p {
+		padding: 0 0 !important;
+	}
+	@media (max-width: $mobile){
+		text-indent: 1.5em;
+		&:before {
+			left: -1.5em;
+		}
+	}
+}
+
+li {
+	padding: 0.5em 0 !important;
+	text-align: justify;
+}
+
 
 // structure
 .container {
@@ -222,12 +244,12 @@ small {
 		margin-bottom: 48px;
 	}
 
-	h1 {
-		font-size: 48px;
+	.big {
+		font-size: 56px;
 	}
 
-	.big {
-		font-size: 72px;
+	h1 {
+		font-size: 48px;
 	}
 
 	h2 {
@@ -243,11 +265,11 @@ small {
 	}
 
 	h5 {
-		font-size: 16px;
+		font-size: 18px;
 	}
 
 	h6 {
-	font-size: 12px;
+	font-size: 18px;
 	}
 
 	p {
@@ -324,6 +346,7 @@ small {
 			}
 			p {
 				margin-bottom: 0;
+				font-size: 18px;
 				color: $gray;
 			}
 		}
