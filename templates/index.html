@@ -71,7 +71,14 @@
 
       <div class="about container">
         <div class="logotype">
-          <h1>{{config.extra.portfolio_name | safe}}</h1>
+          {% if config.extra.portfolio_name %}
+            <h1>{{config.extra.portfolio_name | safe}}</h1>
+          {% endif %}
+
+          {% if config.extra.portfolio_video %}
+            <video src="/media/{{config.extra.portfolio_video}}" 
+              autoplay muted loop style="box-shadow: none; width: 100%;"></video>
+          {% endif %}
         </div>
         <div>
             <p>{{config.extra.portfolio_description}}</p>
