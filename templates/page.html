@@ -3,6 +3,12 @@
 {% block content %}
     <!-- scroller -->
     <div class='scrim-container'></div>
+
+    {% if page.extra.video %}
+        <div class="hero"> 
+            <video src="/media/projects/{{page.extra.video}}" autoplay muted loop></video>
+        </div>
+    {% endif %}
     <div class='container'>
         <div class="title">
             <h1 class='big'>{{ page.title }}</h1>

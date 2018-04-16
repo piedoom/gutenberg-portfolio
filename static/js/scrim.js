@@ -8,11 +8,16 @@ var ScrimTool = (function(){
              * @return {null}
              */
             this.setup = function() {
+
+                if (options.container == null)
+                    return;
+
                 var _this = this; 
                 zenscroll.setup(500,-20)
                 // add scrollbar
                 var scrollBar = document.createElement("DIV");
                 var progressBar = document.createElement("DIV");
+                this.container.style.opacity = 0;
 
                 scrollBar.classList.add("scrim-scroll-bar")
                 progressBar.classList.add("scrim-progress-bar")
@@ -74,6 +79,8 @@ var ScrimTool = (function(){
                         text.style.top = offset * scrollBar.clientHeight + 6 + "px";
                     }
 
+                    var container = _this.container;
+
                     setPosition();
 
                     node.addEventListener('click', smoothClick);
@@ -83,6 +90,7 @@ var ScrimTool = (function(){
                         var completion = window.pageYOffset / (document.body.scrollHeight);
                         var offset = getOffset(e);
                         if (offset <= completion || (window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                            container.style.opacity = 1;
                             node.classList.add("past");
                             text.classList.add("past");
                             progressBar.classList.add("full");
@@ -97,7 +105,7 @@ var ScrimTool = (function(){
                 });
 
 
-            }.bind(this);
+            };
 
             this.container = options.container;
             this.options = options;
