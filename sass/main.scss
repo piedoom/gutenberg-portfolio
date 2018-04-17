@@ -375,6 +375,21 @@ li {
 			}
 		}
 	}
+
+	.grid.large {
+		padding: 0;
+	}
+}
+
+// used to pad text manually
+.padded {
+	padding-left: 48px;
+	padding-right: 48px;
+	box-sizing: border-box;
+	@media screen and (max-width: $mobile) {
+		padding-left: 24px;
+		padding-right: 24px;
+	}
 }
 
 .hero {

@@ -10,10 +10,20 @@
         </div>
     {% endif %}
     <div class='container'>
-        <div class="title">
-            <h1 class='big'>{{ page.title }}</h1>
-            <small>{{ page.date }}</small>
-        </div>
+        {% if not page.extra.hide_title %}
+            {% if page.title %}
+                <div class="title">
+                    <h1 class='big'>
+                        {% if page.extra.display_title %}
+                            {{ page.extra.display_title }}
+                        {% else %}
+                            {{ page.title }}
+                        {% endif %}
+                    </h1>
+                    <small>{{ page.date }}</small>
+                </div>
+            {% endif %}
+        {% endif %}
         {{ page.content | safe }}
     </div>
 {% endblock content %}
