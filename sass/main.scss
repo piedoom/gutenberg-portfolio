@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol {
-	line-height: 1.6;
+	line-height: 1.7;
 	font-size: 18px;
 	text-align: justify;
 	margin-bottom: 18px;
@@ -360,32 +360,40 @@ li {
 		margin-top: 72px;
 		margin-bottom: 48px;
 		box-sizing: border-box;
-		// default two section grid
 		grid-template-columns: 1fr 1fr;
-		grid-column-gap: 96px;
 		grid-row-gap: 48px;
 		padding: 0 96px;
-		&>* {
-			grid-column: span 1;
-			display: block;
+		grid-column-gap: 260px;
+		@media screen and (max-width: $desktop) {
+			grid-column-gap: 96px;
 		}
-		@media screen and (max-width: 1150px) {
+		@media screen and (max-width: $tablet) {
+			grid-column-gap: 48px;
 			grid-template-columns: 100% !important;
-			grid-row-gap: 0;
-			width: 100%;
-			overflow: hidden;
-			&>* {
-				width: 100%;
+			grid-row-gap: 16px;
+		}
+		@media screen and (max-width: $mobile) {
+			grid-column-gap: 24px;
+		}
+		&.small {
+			p { text-align: left };
+			@media screen and (min-width: $desktop) {
+				padding-left: 280px;
+				padding-right: 280px;
+			}
+			@media screen and (max-width: $desktop) {
+				padding-left: 96px;
+				padding-right: 96px;
+			}
+			@media screen and (max-width: $tablet) {
+				padding-left: 48px;
+				padding-right: 48px;
+			}
+			@media screen and (max-width: $mobile) {
+				padding-left: 24px;
+				padding-right: 24px;
 			}
 		}
-	}
-
-	.grid.small {
-		padding: inherit;
-	}
-
-	.grid.large {
-		padding: 0;
 	}
 }
 
@@ -521,6 +529,10 @@ h1,h2,h3,h4,h5,h6 {
 	}
 }
 
+.grid video {
+	width: 100%;
+}
+
 .project {
 	text-decoration: none;
 	display: block;
@@ -613,3 +625,31 @@ h1,h2,h3,h4,h5,h6 {
 .medium-zoom-image--open{
 	z-index: 300;
 }
+
+// squiggly line for hr
+hr {
+	display: block;
+	width: 100%;
+	background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 10 5'><style type='text/css'>.st0{animation:shift 0.4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(10px);}}</style><polyline class='st0' points='-10,0 -5,5 0,0 5,5 10,0' stroke='%23c1c1c1' stroke-width='1' fill='none'></polyline></svg>");
+	background-repeat: repeat;
+	height: 5px;
+	box-sizing: border-box;
+	border: none;
+	animation: squiggleAnimation;
+	margin: 48px 0 128px 0;
+	background-clip: content-box;
+	>.large {
+		background-clip: normal;
+	}
+}
+
+/*
+url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 4 20'%3E%3Cstyle type='text/css'%3E.st0{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateY(-20px)
+
+
+	
+	data:image/svg+xml;utf8,<svg viewBox='0 0 32 32'><polyline class='st0' points='0,4  31,16 31,4 64,16' stroke='black' stroke-width='2' fill='none'></polyline></svg>
+
+
+
+*/
