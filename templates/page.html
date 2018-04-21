@@ -24,6 +24,12 @@
                 </div>
             {% endif %}
         {% endif %}
+        {% if page.extra.summary %}
+            <p class="large"> 
+                {{ page.extra.summary }} 
+            </p>
+        {% endif %}
+
         {{ page.content | safe }}
     </div>
 {% endblock content %}

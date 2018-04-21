@@ -27,6 +27,9 @@ p, ul, ol {
 
 p {
 	text-align: justify;
+	&.large {
+		font-size: 24px;
+	}
 }
 
 p,nav,ul,ol,li {	
@@ -52,7 +55,7 @@ nav {
 	display: block;
 	position: fixed;
 	width: 100%;
-	z-index: 100;
+	z-index: 1000;
 	background: $background;
 	.links {
 		padding: 12px 48px;
@@ -361,6 +364,7 @@ li {
 		grid-template-columns: 1fr 1fr;
 		grid-column-gap: 96px;
 		grid-row-gap: 48px;
+		padding: 0 96px;
 		&>* {
 			grid-column: span 1;
 			display: block;
@@ -374,6 +378,10 @@ li {
 				width: 100%;
 			}
 		}
+	}
+
+	.grid.small {
+		padding: inherit;
 	}
 
 	.grid.large {
@@ -467,9 +475,6 @@ h1,h2,h3,h4,h5,h6 {
 				font-size: 48px;
 			}
 		}
-	}
-	p {
-		font-size: 24px;
 	}
 }
 
