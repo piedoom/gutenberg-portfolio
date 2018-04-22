@@ -1,1 +1,3 @@
-<img class="zoom" src="/media/projects/{{path}}"/>
+{% if small %}<p>{% endif %}
+<img {% if not nointeraction %} class="zoom {% if noshadow %}noshadow{% endif %}" {% endif %} src="/media/projects/{{path}}"/>
+{% if small %}</p>{% endif %}
