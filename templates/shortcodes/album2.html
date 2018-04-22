@@ -1,4 +1,6 @@
-<div class="album">
-    <img class="child-element zoom" src="/media/projects/{{path1}}"/>
-    <img class="child-element zoom" src="/media/projects/{{path2}}"/>
-</div>
+{% if small %}<div>{% endif %}
+    <div class="album">
+        <img class="child-element zoom" src="/media/projects/{{path1}}"/>
+        <img class="child-element zoom" src="/media/projects/{{path2}}"/>
+    </div>
+{% if small %}</div>{% endif %}

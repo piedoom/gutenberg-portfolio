@@ -366,6 +366,14 @@ li {
 		grid-column-gap: 260px;
 		padding-left: 0;
 		padding-right: 0;
+		&.reverse {
+			:first-child {
+				order: 2;
+			}			
+			:nth-child(2) {
+				order: 1;
+			}
+		}
 		@media screen and (max-width: $desktop) {
 			grid-column-gap: 48px;
 		}
@@ -375,7 +383,17 @@ li {
 			grid-row-gap: 16px;
 			padding-left: 48px;
 			padding-right: 48px;
-			
+
+			:first-child {
+				order: 1 !important;
+			}			
+			:nth-child(2) {
+				order: 2 !important;
+			}
+
+			img {
+				margin: 0 auto;
+			}
 		}
 		@media screen and (max-width: $mobile) {
 			grid-column-gap: 24px;
