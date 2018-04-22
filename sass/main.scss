@@ -5,11 +5,11 @@
 
 // fonts
 p, ul, ol, nav {
-	font-family: 'Barlow', sans-serif;
+	font-family: 'Karla', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Barlow', sans-serif;
+	font-family: 'Karla', sans-serif;
 	font-weight: 600;
     color: $text;
 }
@@ -66,7 +66,7 @@ nav {
 		}
 		a {
 			text-decoration: none;
-			font-family: 'Barlow', sans-serif;
+			font-family: 'Karla', sans-serif;
 			color: $text;
 			font-size: 18px;
 			margin-right: 23px;
@@ -96,7 +96,7 @@ body.dark {
 }
 
 small {
-	font-family: 'Barlow', sans-serif;
+	font-family: 'Karla', sans-serif;
 	color: $text;
 	margin: 4px;
 }
@@ -163,7 +163,7 @@ ol li {
 		text-align: right;
 		width: 26px;
 		font-weight: bold;
-		font-family: 'Barlow', sans-serif;
+		font-family: 'Karla', sans-serif;
 	}
 	p {
 		padding: 0 0 !important;
