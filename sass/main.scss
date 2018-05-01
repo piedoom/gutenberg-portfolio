@@ -181,6 +181,13 @@ li {
 	text-align: justify;
 }
 
+.center {
+	text-align: center;
+	* {
+		text-align: center;
+	}
+}
+
 
 // structure
 .container {
@@ -419,6 +426,62 @@ li {
 	}
 }
 
+.dgrid {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 16px;
+	grid-row-gap: 16px;
+	box-sizing: border-box;
+	padding: 0;
+	padding-top: 48px;
+
+	@media screen and (max-width: 1150px) {
+		grid-template-columns: 100% !important;
+	}
+
+	&.square {
+		> * {
+			padding-top: 100%;
+			height: 0;
+			background: $light_gray;
+			width: 100%;
+			position: relative;
+			> * {
+				display: flex;
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				justify-content: center;
+				align-items: center;
+				> * {
+					// actual text and stuff goes here
+
+				}  
+			}
+		}
+		grid-auto-rows: 1fr;
+	}
+	&.col-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	&.col-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	&.col-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	&.col-5 {
+		grid-template-columns: repeat(5, 1fr);
+	}
+	&.col-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+
 // used to pad text manually
 .padded {
 	padding-left: 48px;
@@ -559,13 +622,61 @@ h1,h2,h3,h4,h5,h6 {
 	width: 100%;
 }
 
-.project {
+.experiment {
+	background: no-repeat center center; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+	position: relative;
+	// TODO: make zoom image
+	// cursor: pointer;
+}
+
+.project, .experiment {
 	text-decoration: none;
 	display: block;
 	width: 100%; 
 	padding: 0 !important;
 	position: relative;
 	background-color: $light_gray;
+
+	.popup {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		position: relative;
+	
+		transition: background 0.3s ease;
+		height: 100%;
+		background: rgba(0,0,0,0);
+		&:hover {
+			background-color: rgba(0,0,0,0.4);
+			h1, .center {
+				opacity: 1;
+			}
+			.video-fader {
+				background-color: rgba(0,0,0,0.4);
+			}
+		}
+		h1, .center {
+			width: 100%;
+			z-index: 100;
+			color: white;
+			text-align: center;
+			margin: 0;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+			> * { color: white; }
+		}
+		video {
+			position: absolute;
+			height: 100%;
+			margin: 0;
+		}
+	}
 	
 	.thumb {
 		width: 100%;
@@ -580,40 +691,6 @@ h1,h2,h3,h4,h5,h6 {
 			width: 100%;
 			height: 100%;
 			position: absolute;
-		}
-		.popup {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			overflow: hidden;
-			position: relative;
-
-			transition: background 0.3s ease;
-			height: 100%;
-			background: rgba(0,0,0,0);
-			&:hover {
-				background-color: rgba(0,0,0,0.4);
-				h1 {
-					opacity: 1;
-				}
-				.video-fader {
-					background-color: rgba(0,0,0,0.4);
-				}
-			}
-			h1 {
-				width: 100%;
-				z-index: 100;
-				color: white;
-				text-align: center;
-				margin: 0;
-				opacity: 0;
-				transition: opacity 0.3s ease;
-			}
-			video {
-				position: absolute;
-				height: 100%;
-				margin: 0;
-			}
 		}
 	}
 }
@@ -668,14 +745,3 @@ hr {
 		background-clip: normal;
 	}
 }
-
-/*
-url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 4 20'%3E%3Cstyle type='text/css'%3E.st0{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateY(-20px)
-
-
-	
-	data:image/svg+xml;utf8,<svg viewBox='0 0 32 32'><polyline class='st0' points='0,4  31,16 31,4 64,16' stroke='black' stroke-width='2' fill='none'></polyline></svg>
-
-
-
-*/

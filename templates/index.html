@@ -104,7 +104,34 @@
           </a>
         {% endfor %}
       </div>
+
+      {% set experiments = get_section(path="experiments/_index.md") %}
+      <div class="container about">
+        <h1>Experiments</h1>
+        <p class="center">Things that are neat, but are too short to have their own page.</p>
+        <div class="dgrid square col-3">
+          {% for page in experiments.pages %}
+            <div>
+              <div class="experiment" {% if page.extra.thumb | split(pat='.') | last != 'mp4' %} style="background-image: url('/media/experiments/{{page.extra.thumb}}')" {% endif %}>
+                  <div class="thumb">
+                    <div class="popup">
+                      {% if page.extra.thumb | split(pat='.') | last == 'mp4' %}
+                        <video src="/media/experiments/{{page.extra.thumb}}" autoplay muted loop></video>
+                        <div class="video-fader"></div>
+                      {% endif %}
+                      <div class="center">
+                        <h1 style="margin-top: 0;">{{ page.date | date(format="%b %d %Y") }}</h1>
+                        <p style="margin-bottom: 0;">{{ page.title }}</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     {% endblock content %}
+   
 
     <script type="text/javascript">
       // guid incrementor for use with Macy
