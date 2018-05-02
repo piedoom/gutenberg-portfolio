@@ -106,10 +106,10 @@
       </div>
 
       {% set experiments = get_section(path="experiments/_index.md") %}
-      <div class="container about">
-        <h1>Experiments</h1>
+      <div class="container">
+        <h1 class="center">Experiments</h1>
         <p class="center">Things that are neat, but are too short to have their own page.</p>
-        <div class="dgrid square col-3">
+        <div class="dgrid square col-3 dg-small">
           {% for page in experiments.pages %}
             <div>
               <div class="experiment" {% if page.extra.thumb | split(pat='.') | last != 'mp4' %} style="background-image: url('/media/experiments/{{page.extra.thumb}}')" {% endif %}>
