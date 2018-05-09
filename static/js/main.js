@@ -5,15 +5,6 @@
             container: document.querySelector(".scrim-container")
         });
 
-        new Gridder({
-            container: document.querySelector(".projects"),
-            height: 450,
-            childClass: ".project",
-            verticalMargin: 16,
-            horizontalMargin: 16
-        });
-
-
         // anime js stuff
         var nameEl = document.querySelector('.logotype h1');
         if (nameEl) {
