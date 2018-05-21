@@ -1,156 +1,50 @@
 @import 'colors.scss';
 @import 'sizes.scss';
 
-// paragraphs and lists
-
-// fonts
-p, ul, ol, nav {
-	font-family: 'Karla', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Karla', sans-serif;
-	font-weight: 600;
-    color: $text;
-}
-
-p, ul, ol {
-	line-height: 1.7;
-	font-size: 18px;
-	text-align: justify;
-	margin-bottom: 18px;
-	font-weight: 300;
-}
-
-p {
-	text-align: justify;
-	&.large {
-		font-size: 24px;
-	}
-}
-
-p,nav,ul,ol,li {	
-    color: $text;
-}
-
-.dark {
-	p,nav,ul,ol,li {
-		color: $dark_text;
-	}
-}
-
-
-.dark {
-	nav {
-		background: $dark_background;
-		a {
-			color: $dark_text;
-		}
-	}
-}
-nav {
-	display: block;
-	position: fixed;
-	width: 100%;
-	z-index: 1000;
-	background: $background;
-	.links {
-		padding: 12px 48px;
-		max-width: 900px;
-		margin: 16px auto;
-		// make room for logo
-		.spacer {
-			display: inline-block;
-			height: 100%;
-			width: 70px;
-		}
-		a {
-			text-decoration: none;
-			font-family: 'Karla', sans-serif;
-			color: $text;
-			font-size: 18px;
-			margin-right: 23px;
-		}
-		.logo {
-			position: absolute;
-			top: 6px;
-		}
-	}
-}
+// ------------------------------------------
+//                   BASE                   
+// ------------------------------------------
 
 body {
 	min-width: 300px;
 	background-color: $background;
 }
 
-body.dark {		
-	background: $dark_background;
-}
-
-// typeography 
-
-.dark {
-	h1,h2,h3,h4,h5,h6,small {
-		color: $dark_text;
-	}
-}
-
-small {
+// general typography
+p, ul, ol, li, nav, h1, h2, h3, h4, h5, h6, a, small {
 	font-family: 'Karla', sans-serif;
 	color: $text;
-	margin: 4px;
 }
 
-h1,h2,h3,h4,h5,h6 {
+// header styles
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
 	margin-top: 72px;
 	margin-bottom: 0.5em;
 }
 
-h1 {
-	font-size: 96px;
-}
+// header sizing
+h1 { font-size: 96px; }
+h2 { font-size: 72px; }
+h3 { font-size: 48px; }
+h4 { font-size: 36px; }
+h5 { font-size: 24px; }
+h6 { font-size: 18px; }
 
-h2 {
-	font-size: 72px;
-}
-
-h3 {
-	font-size: 48px;
-}
-
-h4 {
-	font-size: 36px;
-}
-
-h5 {
-	font-size: 24px;
-}
-
-h6 {
+// general text size
+p, li, a, nav {
 	font-size: 18px;
 }
 
-.dark {
-	small {
-		color: $dark_gray;
-	}
-}
-small {
-	font-size: 12px;
-	color: $gray;
+// paragraph styles
+p, ul, ol {
+	line-height: 1.7;
+	text-align: justify;
+	margin-bottom: 18px;
+	font-weight: 300;
 }
 
-.title {
-	margin-bottom: 24px;
-	h1,small {
-		padding-left: 0;
-		padding-right: 0;
-	}
-	h1,h2,h3,h4,h5,h6 {
-		margin-bottom: 2px;
-	}
-}
-
+// lists
 ol li {
 	counter-increment: list;
   	list-style-type: none;
@@ -165,14 +59,10 @@ ol li {
 		font-weight: bold;
 		font-family: 'Karla', sans-serif;
 	}
+	// in the case that a `p` tag is rendered
+	// due to markdown weirdness
 	p {
 		padding: 0 0 !important;
-	}
-	@media (max-width: $mobile){
-		text-indent: 1.5em;
-		&:before {
-			left: -1.5em;
-		}
 	}
 }
 
@@ -181,13 +71,151 @@ li {
 	text-align: justify;
 }
 
-.center {
-	text-align: center;
-	* {
-		text-align: center;
+// add smaller margin to small text
+small {
+	margin: 4px;
+	font-size: 12px;
+	color: $gray;
+}
+
+// navigation menu
+nav {
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+	background: $background;
+	// container for links
+	.links {
+		padding: 12px 48px;
+		max-width: 900px;
+		margin: 16px auto;
+		// make room for logo
+		.spacer {
+			display: inline-block;
+			height: 100%;
+			width: 70px;
+		}
+		a {
+			text-decoration: none;
+			margin-right: 24px;
+		}
+		.logo {
+			position: absolute;
+			top: 6px;
+		}
 	}
 }
 
+// image or video that resides at the top of a content page
+.hero {
+	width: 100%;
+	position: relative;
+	z-index: 100;
+	overflow: hidden;
+	min-height: 350px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	video {
+		height: 100%;
+		justify-content: center;
+
+		@media screen and (min-width: 1400px) {
+			width: 100%;
+		}
+	}
+	
+	@media screen and (max-width: $mobile) {
+		height: 200px;
+	}
+}
+
+// ------------------------------------------
+//                  LAYOUT                   
+// ------------------------------------------
+
+// generic css grid system based on a 12 column system
+.dg-container {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(12, 1fr);
+	grid-column-gap: 16px;
+	grid-row-gap: 16px;
+	box-sizing: border-box;
+	padding-left:  0 !important;
+	padding-right: 0 !important;
+	padding-top: 48px;
+
+	// grid sizes
+	.dg-el {
+		&.dg-span-1  { grid-column-end: span 1;  }
+		&.dg-span-2  { grid-column-end: span 2;  }
+		&.dg-span-3  { grid-column-end: span 3;  }
+		&.dg-span-4  { grid-column-end: span 4;  }
+		&.dg-span-5  { grid-column-end: span 5;  }
+		&.dg-span-6  { grid-column-end: span 6;  }
+		&.dg-span-7  { grid-column-end: span 7;  }
+		&.dg-span-8  { grid-column-end: span 8;  }
+		&.dg-span-9  { grid-column-end: span 9;  }
+		&.dg-span-10 { grid-column-end: span 10; }
+		&.dg-span-11 { grid-column-end: span 11; }
+		&.dg-span-12 { grid-column-end: span 12; }
+	}
+
+	// sizing for inner elements
+	// note this operates on the entire container, not just row by row
+	// if you need different breakpoints, just make new grid containers.
+	@media screen and (max-width: $tablet) {
+		.dg-el {
+			grid-column-end: span 6 !important;
+		}
+	}
+	@media screen and (max-width: $mobile) {
+		.dg-el {
+			grid-column-end: span 12 !important;
+		}
+	}
+
+	// keeps the aspect ratio for stuff
+	&.dg-square {
+		> * {
+			padding-top: 100%;
+			height: 0;
+			width: 100%;
+			position: relative;
+			> * {
+				display: flex;
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+		grid-auto-rows: 1fr;
+	}
+}
+
+// squiggly line for hr
+hr {
+	display: block;
+	width: 100%;
+	background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 10 5'><style type='text/css'>.st0{animation:shift 0.4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(10px);}}</style><polyline class='st0' points='-10,0 -5,5 0,0 5,5 10,0' stroke='%23c1c1c1' stroke-width='1' fill='none'></polyline></svg>");
+	background-repeat: repeat;
+	height: 5px;
+	box-sizing: border-box;
+	border: none;
+	animation: squiggleAnimation;
+	margin: 48px 0 128px 0;
+	background-clip: content-box;
+	>.large {
+		background-clip: normal;
+	}
+}
 
 // structure
 .container {
@@ -378,6 +406,9 @@ li {
 				order: 1;
 			}
 		}
+		video {
+			width: 100%;
+		}
 		@media screen and (max-width: $desktop) {
 			grid-column-gap: 48px;
 		}
@@ -426,106 +457,6 @@ li {
 	}
 }
 
-.dgrid {
-	display: grid;
-	width: 100%;
-	grid-template-columns: repeat(4, 1fr);
-	grid-column-gap: 16px;
-	grid-row-gap: 16px;
-	box-sizing: border-box;
-	padding: 0;
-	padding-top: 48px;
-	&.square {
-		> * {
-			padding-top: 100%;
-			height: 0;
-			width: 100%;
-			position: relative;
-			> * {
-				display: flex;
-				position: absolute;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				justify-content: center;
-				align-items: center;
-			}
-		}
-		grid-auto-rows: 1fr;
-	}
-	&.col-2 {
-		grid-template-columns: repeat(2, 1fr);
-	}
-	&.col-3 {
-		grid-template-columns: repeat(3, 1fr);
-	}
-	&.col-4 {
-		grid-template-columns: repeat(4, 1fr);
-	}
-	&.col-5 {
-		grid-template-columns: repeat(5, 1fr);
-	}
-	&.col-6 {
-		grid-template-columns: repeat(6, 1fr);
-	}
-
-	&.dg-small {
-		@media screen and (max-width: $tablet) {
-			grid-template-columns: 1fr 1fr;
-		}
-		@media screen and (max-width: $mobile) {
-			grid-template-columns: 100% !important;
-		}
-		
-	}
-
-	@media screen and (max-width: 1150px) {
-		grid-template-columns: 100%;
-	}
-}
-
-
-// used to pad text manually
-.padded {
-	padding-left: 48px;
-	padding-right: 48px;
-	box-sizing: border-box;
-	@media screen and (max-width: $mobile) {
-		padding-left: 24px;
-		padding-right: 24px;
-	}
-}
-
-.noshadow {
-	box-shadow: none !important;
-}
-
-.hero {
-	width: 100%;
-	position: relative;
-	z-index: 100;
-	overflow: hidden;
-	min-height: 350px;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	
-	video {
-		height: 100%;
-		justify-content: center;
-
-		@media screen and (min-width: 1400px) {
-			width: 100%;
-		}
-	}
-	
-	@media screen and (max-width: $mobile) {
-		height: 200px;
-	}
-}
-
 .container-large {
 	max-width: 1366px;
 	margin: 0 auto;
@@ -543,11 +474,38 @@ li {
 	}
 }
 
-h1,h2,h3,h4,h5,h6 {
-	span {
-		opacity: 0;
-		position: relative;
-		display: inline-block;
+// used to pad text manually
+.padded {
+	padding-left: 48px;
+	padding-right: 48px;
+	box-sizing: border-box;
+	@media screen and (max-width: $mobile) {
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+}
+
+// ------------------------------------------
+//                  MODULE                   
+// ------------------------------------------
+
+// class added when you wanna center stuff
+.center {
+	text-align: center;
+	* {
+		text-align: center;
+	}
+}
+
+// change spacing and margin of special title element
+.title {
+	margin-bottom: 24px;
+	h1,small {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	h1,h2,h3,h4,h5,h6 {
+		margin-bottom: 2px;
 	}
 }
 
@@ -577,22 +535,6 @@ h1,h2,h3,h4,h5,h6 {
 			}
 		}
 	}
-}
-
-@keyframes animate-fade-out {
-	0%   { opacity: 100%; }
-	100% { opacity: 0%; }
-}
-
-@keyframes animate-fade-in {
-	0%   { opacity: 0; }
-	100% { opacity: 1; }
-}
-
-
-@keyframes animate-upwards {
-	0%   { top: 50px; opacity: 0; }
-	100% { top: 0px; opacity: 1; }
 }
 
 .projects {
@@ -634,20 +576,6 @@ h1,h2,h3,h4,h5,h6 {
 		} 
 	}
 	
-}
-
-.dark {
-	.container {
-		.alert {
-			p {
-				color: $dark_gray !important;
-			}
-		}
-	}
-}
-
-.grid video {
-	width: 100%;
 }
 
 .experiment {
@@ -748,12 +676,46 @@ h1,h2,h3,h4,h5,h6 {
 	}
 }
 
-.dark {
-	.project {
-		background-color: $dark_light_gray;
+// ------------------------------------------
+//                  STATE                   
+// ------------------------------------------
+
+// change position of bulletpoints depending on
+// size of the screen
+ol, li {
+	@media (max-width: $mobile){
+		text-indent: 1.5em;
+		&:before {
+			left: -1.5em;
+		}
 	}
 }
 
+
+// ------------------------------------------
+//                  THEME                   
+// ------------------------------------------
+
+// body type mutations
+p, li, nav {
+	&.large {
+		font-size: 24px;
+	}
+}
+
+// remove a default box-shadow
+.noshadow {
+	box-shadow: none !important;
+}
+
+// dont apply box shadow to album images
+.album {
+	.zoom, .video {
+		box-shadow: none;
+	}
+}
+
+// themes scrim js 
 .scrim-container{
 	height: calc(100vh - 74px);
 	width: 100px;
@@ -762,15 +724,9 @@ h1,h2,h3,h4,h5,h6 {
 	bottom: 0px;
 }
 
+// themes for medium zoom js
 .zoom, video {
 	box-shadow: 4px 5px 60px 0px rgba(0,0,0,0.1);
-}
-
-// dont apply box shadow to album images
-.album {
-	.zoom, .video {
-		box-shadow: none;
-	}
 }
 
 .medium-zoom-overlay{
@@ -782,19 +738,32 @@ h1,h2,h3,h4,h5,h6 {
 	z-index: 300;
 }
 
-// squiggly line for hr
-hr {
-	display: block;
-	width: 100%;
-	background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 10 5'><style type='text/css'>.st0{animation:shift 0.4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(10px);}}</style><polyline class='st0' points='-10,0 -5,5 0,0 5,5 10,0' stroke='%23c1c1c1' stroke-width='1' fill='none'></polyline></svg>");
-	background-repeat: repeat;
-	height: 5px;
-	box-sizing: border-box;
-	border: none;
-	animation: squiggleAnimation;
-	margin: 48px 0 128px 0;
-	background-clip: content-box;
-	>.large {
-		background-clip: normal;
+// ------------------------------------------
+//                 ANIMATIONS            
+// ------------------------------------------
+
+@keyframes animate-fade-out {
+	0%   { opacity: 100%; }
+	100% { opacity: 0%; }
+}
+
+@keyframes animate-fade-in {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes animate-upwards {
+	0%   { top: 50px; opacity: 0; }
+	100% { top: 0px; opacity: 1; }
+}
+
+// ------------------------------------------
+//       AUDIT (Do we need these?)                   
+// ------------------------------------------
+h1,h2,h3,h4,h5,h6 {
+	span {
+		opacity: 0;
+		position: relative;
+		display: inline-block;
 	}
 }
