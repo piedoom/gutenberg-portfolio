@@ -9,7 +9,7 @@
         {% endif %}
 
         {% if type == "video" %}
-        <video src="/media/projects/{{path}}" autoplay {% if controls %}controls{% endif %} muted loop>
+        <video src="/media/projects/{{path}}" autoplay {% if controls %}controls{% endif %} muted loop {% if max %}style="max-width: {{max}}px"{% endif %}>
         </video>
         {% endif %}
     </div>
