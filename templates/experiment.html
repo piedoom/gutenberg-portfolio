@@ -1,0 +1,42 @@
+{% extends "index.html" %} {% block content %}
+<div class='container'>
+    {% if not page.extra.hide_title %} {% if page.title %}
+    <div class="title">
+        <h1 class='big'>
+            {% if page.extra.display_title %} {{ page.extra.display_title }} {% else %} {{ page.title }} {% endif %}
+        </h1>
+        <small>{{ page.date }}</small>
+    </div>
+    {% endif %} {% endif %} {% if page.extra.show_synopsis %}
+    <h3>Synopsis</h3>
+    {% if page.extra.summary %}
+    <p>
+        {{ page.extra.summary }}
+    </p>
+    {% endif %}
+
+    <div class="grid small" style="margin-top: 48px;">
+        <div>
+            <h3 style="margin-top: 0;">Project Type</h3>
+            {% if page.tags %}
+            <p>{% for tag in page.tags %}{% if not loop.first %}, {% endif %}{{ tag }}{% endfor %}</p>
+            {% endif %}
+        </div>
+        <div>
+            <h3 style="margin-top: 0;">Timeframe</h3>
+            <p>
+                {% if page.extra.duration_weeks %} {{ page.extra.duration_weeks }} weeks {% endif %} {% if page.extra.duration_years %} {{
+                page.extra.duration_years }} years {% endif %} {% if page.extra.startdate %} started {{ page.extra.startdate
+                }} {% endif %}
+            </p>
+        </div>
+    </div>
+    <hr></hr>
+    {% endif %}
+    <p>{{ page.description }}</p>
+    <img src="/media/experiments/{{page.extra.full}}" class="zoom" />
+    <p>{{ page.content | safe }}</p>
+
+
+</div>
+{% endblock content %}

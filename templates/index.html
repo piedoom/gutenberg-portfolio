@@ -1,185 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <!-- Enable responsiveness on mobile devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <!-- css -->
-    <link rel="stylesheet" href="/reset.css">
-    <link rel="stylesheet" href="/scrim.css">
-    <link rel="stylesheet" href="/main.css">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700" rel="stylesheet">
+  <!-- css -->
+  <link rel="stylesheet" href="/reset.css">
+  <link rel="stylesheet" href="/scrim.css">
+  <link rel="stylesheet" href="/main.css">
 
-    <script type="text/javascript" src="/js/rustish.js"></script>
-    <script type="text/javascript" src="/js/appear.min.js"></script>
-    <script type="text/javascript" src="/js/zenscroll-min.js"></script>
-    <script type="text/javascript" src="/js/macy.min.js"></script>
-    <script type="text/javascript" src="/js/medium-zoom.min.js"></script>
-    <script type="text/javascript" src="/js/scrim.js"></script>
-    <script type="text/javascript" src="/js/anime.min.js"></script>
-    <script type="text/javascript" src="/js/animate.js"></script>
-    <script type="text/javascript" src="/js/chart.min.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
-    
-    {% if config.extra.portfolio_tracking_id %}
-    <!-- tracking script -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{config.extra.portfolio_tracking_id}}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700" rel="stylesheet">
 
-      gtag('config', '{{config.extra.portfolio_tracking_id}}');
-    </script>
-    {% endif %}
+  <script type="text/javascript" src="/js/rustish.js"></script>
+  <script type="text/javascript" src="/js/appear.min.js"></script>
+  <script type="text/javascript" src="/js/zenscroll-min.js"></script>
+  <script type="text/javascript" src="/js/macy.min.js"></script>
+  <script type="text/javascript" src="/js/medium-zoom.min.js"></script>
+  <script type="text/javascript" src="/js/scrim.js"></script>
+  <script type="text/javascript" src="/js/anime.min.js"></script>
+  <script type="text/javascript" src="/js/animate.js"></script>
+  <script type="text/javascript" src="/js/chart.min.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script> {% if config.extra.portfolio_tracking_id %}
+  <!-- tracking script -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{config.extra.portfolio_tracking_id}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  </head>
+    gtag('config', '{{config.extra.portfolio_tracking_id}}');
+  </script> {% endif %}
 
-  <body {% if config.extra.theme %}class='{{config.extra.theme}}'{% endif %}>
-    {% block menu %}
-      <nav>
-        <div class='links'>
-          <a href="/">
-            <img src='/media/logo.png' class='logo'/>
-          </a>
-          <div class='spacer'></div>
-          {% set pages = get_section(path="pages/_index.md") %}
-          <!-- home page -->
-          <a href="/">Projects</a>
+</head>
 
-          <!-- email -->
-          <a href="mailto:{{config.extra.portfolio_contact}}">Contact</a>
+<body {% if config.extra.theme %}class='{{config.extra.theme}}' {% endif %}>
+  {% block menu %}
+  <nav>
+    <div class='links'>
+      <a href="/">
+        <img src='/media/logo.png' class='logo' />
+      </a>
+      <div class='spacer'></div>
+      {% set pages = get_section(path="pages/_index.md") %}
+      <!-- home page -->
+      <a href="/">Projects</a>
 
-          <!-- loop through other pages -->
-          {% for page in pages.pages %}
-            <a href="{{page.permalink}}" >
-              {{page.title}}
-            </a>
-          {% endfor %}
-        </div>
-      </nav>
-      <div style="height: 74px; width: 100%"></div>
-    {% endblock menu %}
+      <!-- email -->
+      <a href="mailto:{{config.extra.portfolio_contact}}">Contact</a>
 
-    {% block content %}
+      <!-- loop through other pages -->
+      {% for page in pages.pages %}
+      <a href="{{page.permalink}}">
+        {{page.title}}
+      </a>
+      {% endfor %}
+    </div>
+  </nav>
+  <div style="height: 74px; width: 100%"></div>
+  {% endblock menu %} {% block content %}
 
-      <div class="about container">
-        <div class="logotype">
-          {% if config.extra.portfolio_name %}
-            <h1>{{config.extra.portfolio_name | safe}}</h1>
-          {% endif %}
+  <div class="about container">
+    <div class="logotype">
+      {% if config.extra.portfolio_name %}
+      <h1>{{config.extra.portfolio_name | safe}}</h1>
+      {% endif %} {% if config.extra.portfolio_video %}
+      <video src="/media/{{config.extra.portfolio_video}}" autoplay muted loop style="box-shadow: none; width: 100%;"></video>
+      {% endif %}
+    </div>
+    <div>
+      <p class='large'>{{config.extra.portfolio_description}}</p>
+    </div>
+  </div>
 
-          {% if config.extra.portfolio_video %}
-            <video src="/media/{{config.extra.portfolio_video}}" 
-              autoplay muted loop style="box-shadow: none; width: 100%;"></video>
-          {% endif %}
-        </div>
-        <div>
-            <p class='large'>{{config.extra.portfolio_description}}</p>
+  <div class="container projects">
+    {% set projects = get_section(path="projects/_index.md") %} {% for project in projects.pages %} {% if project.draft == false
+    %}
+    <a class="project" href="{{project.permalink}}">
+
+      <div class="thumb" {% if project.extra.image %} style="background-image: url(/media/projects/{{project.extra.image}})" {%
+        endif %}>
+        <!-- video, if available -->
+        <div class="popup">
+          {% if project.extra.video %}
+          <video src="/media/projects/{{project.extra.video}}" autoplay muted loop></video>
+          <div class="video-fader"></div>
+          {% endif %} {% if project.extra.no_title_on_hover %} {% else %}
+          <h1>{{project.title}}</h1> {% endif %}
         </div>
       </div>
+    </a>
+    {% endif %} {% endfor %}
+  </div>
 
-      <div class="container projects">
-        {% set projects = get_section(path="projects/_index.md") %}
-        {% for project in projects.pages %}
-          {% if project.draft == false %}
-            <a class="project" href="{{project.permalink}}">
-              
-              <div class="thumb" {% if project.extra.image %} style="background-image: url(/media/projects/{{project.extra.image}})" {% endif %} >
-                <!-- video, if available -->
-                <div class="popup">
-                    {% if project.extra.video %}
-                      <video src="/media/projects/{{project.extra.video}}" autoplay muted loop></video>
-                      <div class="video-fader"></div>
-                    {% endif %}
-                  {% if project.extra.no_title_on_hover %} {% else %}
-                  <h1>{{project.title}}</h1> {% endif %}
-                </div>
-              </div>
-            </a>
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      {% set experiments = get_section(path="experiments/_index.md") %}
-      <div class="container">
-        <h1 class="center">Experiments</h1>
-        <p class="center">Things that are neat, but are too short to have their own page.</p>
-        <div class="dg-container dg-square">
-          {% for page in experiments.pages %}
-            <div class="dg-el dg-span-4">
-              <div class="experiment" {% if page.extra.thumb | split(pat='.') | last != 'mp4' %} style="background-image: url('/media/experiments/{{page.extra.thumb}}')" {% endif %}>
-                  <div class="thumb">
-                    <div class="popup">
-                      {% if page.extra.thumb | split(pat='.') | last == 'mp4' %}
-                        <video src="/media/experiments/{{page.extra.thumb}}" autoplay muted loop></video>
-                        <div class="video-fader"></div>
-                      {% endif %}
-                      <div class="center">
-                        <h1 style="margin-top: 0;">{{ page.date | date(format="%b %d %Y") }}</h1>
-                        <p style="margin-bottom: 0;">{{ page.title }}</p>
-                      </div>
-                    </div>
-                  </div>
+  {% set experiments = get_section(path="experiments/_index.md") %}
+  <div class="container">
+    <h1 class="center">Experiments</h1>
+    <p class="center">Things that are neat, but are too short to have their own page.</p>
+    <div class="dg-container dg-square">
+      {% for page in experiments.pages %}
+      <a href="{{page.permalink}}" target="_blank" class="dg-el dg-span-4">
+        <div class="experiment" {% if page.extra.thumb | split(pat='.' ) | last !='mp4' %} style="background-image: url('/media/experiments/{{page.extra.thumb}}')"
+          {% endif %}>
+          <div class="thumb">
+            <div class="popup">
+              {% if page.extra.thumb | split(pat='.') | last == 'mp4' %}
+              <video src="/media/experiments/{{page.extra.thumb}}" autoplay muted loop></video>
+              <div class="video-fader"></div>
+              {% endif %}
+              <div class="center">
+                <h1 style="margin-top: 0;">{{ page.date | date(format="%b %d %Y") }}</h1>
+                <p style="margin-bottom: 0;">{{ page.title }}</p>
               </div>
             </div>
-          {% endfor %}
+          </div>
         </div>
-      </div>
-    {% endblock content %}
-   
+        {% endfor %}
+    </div>
+  </div>
+  {% endblock content %}
 
-    <script type="text/javascript">
-      // guid incrementor for use with Macy
-      var guid = 0;
 
-      document.querySelectorAll('.album').forEach(function(el) {
+  <script type="text/javascript">
+    // guid incrementor for use with Macy
+    var guid = 0;
 
-        var numImages = el.childElementCount;
-        var numColumns = (function() {
-          if (numImages < 4)
-            return numImages;
-          else
-            return 4
-        })();
-        var numColumnsTablet = (function() {
-          if (numImages < 2)
-            return numImages;
-          else
-            return 2
-        })(); 
+    document.querySelectorAll('.album').forEach(function (el) {
 
-        el.classList.add("macy-"+guid);     
+      var numImages = el.childElementCount;
+      var numColumns = (function () {
+        if (numImages < 4)
+          return numImages;
+        else
+          return 4
+      })();
+      var numColumnsTablet = (function () {
+        if (numImages < 2)
+          return numImages;
+        else
+          return 2
+      })();
 
-        Macy({  
-          container: ".macy-"+guid,
-          columns: numColumns,
-          margin: {
-            x: 12,
-            y: 12  
+      el.classList.add("macy-" + guid);
+
+      Macy({
+        container: ".macy-" + guid,
+        columns: numColumns,
+        margin: {
+          x: 12,
+          y: 12
+        },
+        breakAt: {
+          768: {
+            columns: numColumnsTablet
           },
-          breakAt: {
-            768: {
-              columns: numColumnsTablet
-            },
-            375: {
-              columns: 1
-            }
+          375: {
+            columns: 1
           }
-        });
-
-        guid++;
+        }
       });
-      
-      mediumZoom(document.querySelectorAll('.zoom'));
-    </script>
 
-  </body>
+      guid++;
+    });
+
+    mediumZoom(document.querySelectorAll('.zoom'));
+  </script>
+
+</body>
 
 </html>

@@ -158,6 +158,8 @@ nav {
 	padding-right: 0 !important;
 	padding-top: 48px;
 
+	>* { display: block; }
+
 	// grid sizes
 	.dg-el {
 		&.dg-span-1  { grid-column-end: span 1;  }
