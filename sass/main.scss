@@ -1,145 +1,192 @@
+@import 'reset.scss';
 @import 'colors.scss';
 @import 'sizes.scss';
+@import 'scrim.scss';
 
 // ------------------------------------------
 //                   BASE                   
 // ------------------------------------------
 
 body {
-	min-width: 300px;
-	background-color: $background;
+    min-width: 300px;
+    background-color: $background;
 }
 
 // general typography
-p, ul, ol, li, nav, h1, h2, h3, h4, h5, h6, a, small {
-	font-family: 'Karla', sans-serif;
-	color: $text;
+p,
+ul,
+ol,
+li,
+nav,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+small {
+    font-family: 'Karla', sans-serif;
+    color: $text;
 }
 
 // header styles
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 600;
-	margin-top: 72px;
-	margin-bottom: 0.5em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    margin-top: 72px;
+    margin-bottom: 0.5em;
 }
 
 // header sizing
-h1 { font-size: 96px; }
-h2 { font-size: 72px; }
-h3 { font-size: 48px; }
-h4 { font-size: 36px; }
-h5 { font-size: 24px; }
-h6 { font-size: 18px; }
+h1 {
+    font-size: 96px;
+}
+
+h2 {
+    font-size: 72px;
+}
+
+h3 {
+    font-size: 48px;
+}
+
+h4 {
+    font-size: 36px;
+}
+
+h5 {
+    font-size: 24px;
+}
+
+h6 {
+    font-size: 18px;
+}
 
 // general text size
-p, li, a, nav {
-	font-size: 18px;
+p,
+li,
+a,
+nav {
+    font-size: 18px;
 }
 
 // paragraph styles
-p, ul, ol {
-	line-height: 1.7;
-	text-align: justify;
-	margin-bottom: 18px;
-	font-weight: 300;
+p,
+ul,
+ol {
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 18px;
+    font-weight: 300;
 }
 
 // lists
 ol li {
-	counter-increment: list;
-  	list-style-type: none;
-	position: relative;
-	&:before {
-		color: $accent;
-		content: counter(list);
-		left: -2em;
-		position: absolute;
-		text-align: right;
-		width: 26px;
-		font-weight: bold;
-		font-family: 'Karla', sans-serif;
-	}
-	// in the case that a `p` tag is rendered
-	// due to markdown weirdness
-	p {
-		padding: 0 0 !important;
-	}
+    counter-increment: list;
+    list-style-type: none;
+    position: relative;
+
+    &:before {
+        color: $accent;
+        content: counter(list);
+        left: -2em;
+        position: absolute;
+        text-align: right;
+        width: 26px;
+        font-weight: bold;
+        font-family: 'Karla', sans-serif;
+    }
+
+    // in the case that a `p` tag is rendered
+    // due to markdown weirdness
+    p {
+        padding: 0 0 !important;
+    }
 }
 
 li {
-	padding: 0.5em 0 !important;
-	text-align: justify;
+    padding: 0.5em 0 !important;
+    text-align: justify;
 }
 
 // add smaller margin to small text
 small {
-	margin: 4px;
-	font-size: 12px;
-	color: $gray;
+    margin: 4px;
+    font-size: 12px;
+    color: $gray;
 }
 
 // navigation menu
 nav {
-	position: fixed;
-	width: 100%;
-	z-index: 1000;
-	background: $background;
-	// container for links
-	.links {
-		padding: 12px 48px;
-		max-width: 900px;
-		margin: 16px auto;
-		// make room for logo
-		.spacer {
-			display: inline-block;
-			height: 100%;
-			width: 70px;
-		}
-		a {
-			text-decoration: none;
-			margin-right: 24px;
-		}
-		.logo {
-			position: absolute;
-			top: 6px;
-		}
-	}
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: $background;
+
+    // container for links
+    .links {
+        padding: 12px 48px;
+        max-width: 900px;
+        margin: 16px auto;
+
+        // make room for logo
+        .spacer {
+            display: inline-block;
+            height: 100%;
+            width: 70px;
+        }
+
+        a {
+            text-decoration: none;
+            margin-right: 24px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 6px;
+        }
+    }
 }
 
 // charts and data vis
 .chart {
-	width: 100%;
-	box-sizing: border-box;
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-	margin-top: 32px;
-	margin-bottom: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-top: 32px;
+    margin-bottom: 48px;
 }
 
 // image or video that resides at the top of a content page
 .hero {
-	width: 100%;
-	position: relative;
-	z-index: 100;
-	overflow: hidden;
-	min-height: 350px;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	
-	video {
-		height: 100%;
-		justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 100;
+    overflow: hidden;
+    min-height: 350px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-		@media screen and (min-width: 1400px) {
-			width: 100%;
-		}
-	}
-	
-	@media screen and (max-width: $mobile) {
-		height: 200px;
-	}
+    video {
+        height: 100%;
+        justify-content: center;
+
+        @media screen and (min-width: 1400px) {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: $mobile) {
+        height: 200px;
+    }
 }
 
 // ------------------------------------------
@@ -148,353 +195,428 @@ nav {
 
 // generic css grid system based on a 12 column system
 .dg-container {
-	display: grid;
-	width: 100%;
-	grid-template-columns: repeat(12, 1fr);
-	grid-column-gap: 16px;
-	grid-row-gap: 16px;
-	box-sizing: border-box;
-	padding-left:  0 !important;
-	padding-right: 0 !important;
-	padding-top: 48px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 48px;
 
-	>* { display: block; }
+    >* {
+        display: block;
+    }
 
-	// grid sizes
-	.dg-el {
-		&.dg-span-1  { grid-column-end: span 1;  }
-		&.dg-span-2  { grid-column-end: span 2;  }
-		&.dg-span-3  { grid-column-end: span 3;  }
-		&.dg-span-4  { grid-column-end: span 4;  }
-		&.dg-span-5  { grid-column-end: span 5;  }
-		&.dg-span-6  { grid-column-end: span 6;  }
-		&.dg-span-7  { grid-column-end: span 7;  }
-		&.dg-span-8  { grid-column-end: span 8;  }
-		&.dg-span-9  { grid-column-end: span 9;  }
-		&.dg-span-10 { grid-column-end: span 10; }
-		&.dg-span-11 { grid-column-end: span 11; }
-		&.dg-span-12 { grid-column-end: span 12; }
-	}
+    // grid sizes
+    .dg-el {
+        &.dg-span-1 {
+            grid-column-end: span 1;
+        }
 
-	// sizing for inner elements
-	// note this operates on the entire container, not just row by row
-	// if you need different breakpoints, just make new grid containers.
-	@media screen and (max-width: $tablet) {
-		.dg-el {
-			grid-column-end: span 6 !important;
-		}
-	}
-	@media screen and (max-width: $mobile) {
-		.dg-el {
-			grid-column-end: span 12 !important;
-		}
-	}
+        &.dg-span-2 {
+            grid-column-end: span 2;
+        }
 
-	// keeps the aspect ratio for stuff
-	&.dg-square {
-		> * {
-			padding-top: 100%;
-			height: 0;
-			width: 100%;
-			position: relative;
-			> * {
-				display: flex;
-				position: absolute;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				justify-content: center;
-				align-items: center;
-			}
-		}
-		grid-auto-rows: 1fr;
-	}
+        &.dg-span-3 {
+            grid-column-end: span 3;
+        }
+
+        &.dg-span-4 {
+            grid-column-end: span 4;
+        }
+
+        &.dg-span-5 {
+            grid-column-end: span 5;
+        }
+
+        &.dg-span-6 {
+            grid-column-end: span 6;
+        }
+
+        &.dg-span-7 {
+            grid-column-end: span 7;
+        }
+
+        &.dg-span-8 {
+            grid-column-end: span 8;
+        }
+
+        &.dg-span-9 {
+            grid-column-end: span 9;
+        }
+
+        &.dg-span-10 {
+            grid-column-end: span 10;
+        }
+
+        &.dg-span-11 {
+            grid-column-end: span 11;
+        }
+
+        &.dg-span-12 {
+            grid-column-end: span 12;
+        }
+    }
+
+    // sizing for inner elements
+    // note this operates on the entire container, not just row by row
+    // if you need different breakpoints, just make new grid containers.
+    @media screen and (max-width: $tablet) {
+        .dg-el {
+            grid-column-end: span 6 !important;
+        }
+    }
+
+    @media screen and (max-width: $mobile) {
+        .dg-el {
+            grid-column-end: span 12 !important;
+        }
+    }
+
+    // keeps the aspect ratio for stuff
+    &.dg-square {
+        >* {
+            padding-top: 100%;
+            height: 0;
+            width: 100%;
+            position: relative;
+
+            >* {
+                display: flex;
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        grid-auto-rows: 1fr;
+    }
 }
 
 // squiggly line for hr
 hr {
-	display: block;
-	width: 100%;
-	background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 10 5'><style type='text/css'>.st0{animation:shift 0.4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(10px);}}</style><polyline class='st0' points='-10,0 -5,5 0,0 5,5 10,0' stroke='%23c1c1c1' stroke-width='1' fill='none'></polyline></svg>");
-	background-repeat: repeat;
-	height: 5px;
-	box-sizing: border-box;
-	border: none;
-	animation: squiggleAnimation;
-	margin: 48px 0 128px 0;
-	background-clip: content-box;
-	>.large {
-		background-clip: normal;
-	}
+    display: block;
+    width: 100%;
+    background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 10 5'><style type='text/css'>.st0{animation:shift 0.4s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(10px);}}</style><polyline class='st0' points='-10,0 -5,5 0,0 5,5 10,0' stroke='%23c1c1c1' stroke-width='1' fill='none'></polyline></svg>");
+    background-repeat: repeat;
+    height: 5px;
+    box-sizing: border-box;
+    border: none;
+    animation: squiggleAnimation;
+    margin: 48px 0 128px 0;
+    background-clip: content-box;
+
+    >.large {
+        background-clip: normal;
+    }
 }
 
 // structure
 .container {
-	max-width: 1366px;
-	padding-top: 48px;
-	padding-bottom: 48px;
-	margin: 0 auto;
+    max-width: 1366px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    margin: 0 auto;
 
-	@media screen and (max-width: $desktop) {
-		max-width: 900px;
-	}
-	
-	> * {
-		@media screen and (min-width: $desktop) {
-			padding-left: 280px;
-			padding-right: 280px;
-		}
-		@media screen and (max-width: $desktop) {
-			padding-left: 96px;
-			padding-right: 96px;
-		}
-		@media screen and (max-width: $tablet) {
-			padding-left: 48px;
-			padding-right: 48px;
-		}
-		@media screen and (max-width: $mobile) {
-			padding-left: 24px;
-			padding-right: 24px;
-		}
-		
-	}
-	
-	img {
-		width: 100%;
-		display: block;
-		border-radius: $round;
-		margin-top: 72px;
-		margin-bottom: 48px;
-	}
-	video {
-		border-radius: $round;
-		margin-top: 72px;
-		margin-bottom: 48px;
-		margin-left: auto !important;
-		margin-right: auto !important;
-		display: block
-	}
+    @media screen and (max-width: $desktop) {
+        max-width: 900px;
+    }
 
-	.album img {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
+    >* {
+        @media screen and (min-width: $desktop) {
+            padding-left: 280px;
+            padding-right: 280px;
+        }
 
-	.album, img {
-		padding-left: 0;
-		padding-right: 0;
-	}
+        @media screen and (max-width: $desktop) {
+            padding-left: 96px;
+            padding-right: 96px;
+        }
 
-	.album {
-		margin-top: 72px;
-		margin-bottom: 48px;
-	}
+        @media screen and (max-width: $tablet) {
+            padding-left: 48px;
+            padding-right: 48px;
+        }
 
-	.big {
-		font-size: 56px;
-	}
+        @media screen and (max-width: $mobile) {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
 
-	h1 {
-		font-size: 48px;
-	}
+    }
 
-	h2 {
-		font-size: 36px;
-	}
+    img {
+        width: 100%;
+        display: block;
+        border-radius: $round;
+        margin-top: 72px;
+        margin-bottom: 48px;
+    }
 
-	h3 {
-		font-size: 24px;
-	}
+    video {
+        border-radius: $round;
+        margin-top: 72px;
+        margin-bottom: 48px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block
+    }
 
-	h4 {
-		font-size: 18px;
-	}
+    .album img {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 
-	h5 {
-		font-size: 18px;
-	}
+    .album,
+    img {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
-	h6 {
-	font-size: 18px;
-	}
+    .album {
+        margin-top: 72px;
+        margin-bottom: 48px;
+    }
 
-	p {
-		margin-bottom: 24px;
-	}
+    .big {
+        font-size: 56px;
+    }
 
-	strong {
-		font-weight: bold;
-	}
+    h1 {
+        font-size: 48px;
+    }
 
-	em {
-		font-style: italic;
-	}
+    h2 {
+        font-size: 36px;
+    }
 
-	a {
-		color: $accent;
-		font-weight: bold;
-		&:visited {
-			color: darken($accent, 10%);
-		}
-	}
+    h3 {
+        font-size: 24px;
+    }
 
-	.image-break {
-		height: 300px;
-		position: absolute;
-		left: 200px;
-		right: 200px;
-		z-index: -100;
-		margin: 72px 0;
-		background: no-repeat center center fixed; 
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		@media screen and (max-width: 1150px) {
-			display: none !important;
-		}
-	}
-	.image-break-spacer {
-		height: 300px;
-		margin-top: 72px;
-		margin-bottom: 96px;
-		visibility: hidden;
-		background: no-repeat center center fixed; 
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		@media screen and (max-width: 1150px) {
-			visibility: visible;
-		}
-	}
-	.youtube {
-		width: 100%;
-		padding: 0;
-		padding-bottom: 56.25%;
-		iframe {
-			width: 100%;
-			height: 100%;
-		}
-	}
+    h4 {
+        font-size: 18px;
+    }
 
-	// thing that goes at the top of a post
-	.alert {
-		box-sizing: border-box;
-		> div.alert-wrapper {
-			outline: 1px solid $light_gray;
-			box-sizing: border-box;
-			padding: 32px;
-			h1 {
-				margin-top: 0;
-				font-size: 32px;
-				margin-bottom: 24px;
-			}
-			p {
-				margin-bottom: 0;
-				font-size: 18px;
-				color: $gray;
-			}
-		}
-	}
+    h5 {
+        font-size: 18px;
+    }
 
-	.grid {
-		display: grid;
-		margin-top: 72px;
-		margin-bottom: 48px;
-		box-sizing: border-box;
-		grid-template-columns: 1fr 1fr;
-		grid-row-gap: 48px;
-		padding: 0 96px;
-		grid-column-gap: 260px;
-		padding-left: 0;
-		padding-right: 0;
-		&.reverse {
-			:first-child {
-				order: 2;
-			}			
-			:nth-child(2) {
-				order: 1;
-			}
-		}
-		video {
-			width: 100%;
-		}
-		@media screen and (max-width: $desktop) {
-			grid-column-gap: 48px;
-		}
-		@media screen and (max-width: $tablet) {
-			grid-column-gap: 48px;
-			grid-template-columns: 100% !important;
-			grid-row-gap: 16px;
-			padding-left: 48px;
-			padding-right: 48px;
+    h6 {
+        font-size: 18px;
+    }
 
-			:first-child {
-				order: 1 !important;
-			}			
-			:nth-child(2) {
-				order: 2 !important;
-			}
+    p {
+        margin-bottom: 24px;
+    }
 
-			img {
-				margin: 0 auto;
-			}
-		}
-		@media screen and (max-width: $mobile) {
-			grid-column-gap: 24px;
-			padding-left: 24px;
-			padding-right: 24px;
-		}
-		&.small {
-			p { text-align: left };
-			@media screen and (min-width: $desktop) {
-				padding-left: 280px;
-				padding-right: 280px;
-			}
-			@media screen and (max-width: $desktop) {
-				padding-left: 96px;
-				padding-right: 96px;
-			}
-			@media screen and (max-width: $tablet) {
-				padding-left: 48px;
-				padding-right: 48px;
-			}
-			@media screen and (max-width: $mobile) {
-				padding-left: 24px;
-				padding-right: 24px;
-			}
-		}
-	}
+    strong {
+        font-weight: bold;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    a {
+        color: $accent;
+        font-weight: bold;
+
+        &:visited {
+            color: darken($accent, 10%);
+        }
+    }
+
+    .image-break {
+        height: 300px;
+        position: absolute;
+        left: 200px;
+        right: 200px;
+        z-index: -100;
+        margin: 72px 0;
+        background: no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+        @media screen and (max-width: 1150px) {
+            display: none !important;
+        }
+    }
+
+    .image-break-spacer {
+        height: 300px;
+        margin-top: 72px;
+        margin-bottom: 96px;
+        visibility: hidden;
+        background: no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+        @media screen and (max-width: 1150px) {
+            visibility: visible;
+        }
+    }
+
+    .youtube {
+        width: 100%;
+        padding: 0;
+        padding-bottom: 56.25%;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    // thing that goes at the top of a post
+    .alert {
+        box-sizing: border-box;
+
+        >div.alert-wrapper {
+            outline: 1px solid $light_gray;
+            box-sizing: border-box;
+            padding: 32px;
+
+            h1 {
+                margin-top: 0;
+                font-size: 32px;
+                margin-bottom: 24px;
+            }
+
+            p {
+                margin-bottom: 0;
+                font-size: 18px;
+                color: $gray;
+            }
+        }
+    }
+
+    .grid {
+        display: grid;
+        margin-top: 72px;
+        margin-bottom: 48px;
+        box-sizing: border-box;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 48px;
+        padding: 0 96px;
+        grid-column-gap: 260px;
+        padding-left: 0;
+        padding-right: 0;
+
+        &.reverse {
+            :first-child {
+                order: 2;
+            }
+
+            :nth-child(2) {
+                order: 1;
+            }
+        }
+
+        video {
+            width: 100%;
+        }
+
+        @media screen and (max-width: $desktop) {
+            grid-column-gap: 48px;
+        }
+
+        @media screen and (max-width: $tablet) {
+            grid-column-gap: 48px;
+            grid-template-columns: 100% !important;
+            grid-row-gap: 16px;
+            padding-left: 48px;
+            padding-right: 48px;
+
+            :first-child {
+                order: 1 !important;
+            }
+
+            :nth-child(2) {
+                order: 2 !important;
+            }
+
+            img {
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (max-width: $mobile) {
+            grid-column-gap: 24px;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        &.small {
+            p {
+                text-align: left
+            }
+
+            ;
+
+            @media screen and (min-width: $desktop) {
+                padding-left: 280px;
+                padding-right: 280px;
+            }
+
+            @media screen and (max-width: $desktop) {
+                padding-left: 96px;
+                padding-right: 96px;
+            }
+
+            @media screen and (max-width: $tablet) {
+                padding-left: 48px;
+                padding-right: 48px;
+            }
+
+            @media screen and (max-width: $mobile) {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+        }
+    }
 }
 
 .container-large {
-	max-width: 1366px;
-	margin: 0 auto;
-	> * {
-		padding-left: 0;
-		padding-right: 0;
-		@media screen and (max-width: $tablet) {
-			padding-left: 48px;
-			padding-right: 48px;
-		}
-		@media screen and (max-width: $mobile) {
-			padding-left: 24px;
-			padding-right: 24px;
-		}
-	}
+    max-width: 1366px;
+    margin: 0 auto;
+
+    >* {
+        padding-left: 0;
+        padding-right: 0;
+
+        @media screen and (max-width: $tablet) {
+            padding-left: 48px;
+            padding-right: 48px;
+        }
+
+        @media screen and (max-width: $mobile) {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
 }
 
 // used to pad text manually
 .padded {
-	padding-left: 48px;
-	padding-right: 48px;
-	box-sizing: border-box;
-	@media screen and (max-width: $mobile) {
-		padding-left: 24px;
-		padding-right: 24px;
-	}
+    padding-left: 48px;
+    padding-right: 48px;
+    box-sizing: border-box;
+
+    @media screen and (max-width: $mobile) {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 }
 
 // ------------------------------------------
@@ -503,189 +625,227 @@ hr {
 
 // class added when you wanna center stuff
 .center {
-	text-align: center;
-	* {
-		text-align: center;
-	}
+    text-align: center;
+
+    * {
+        text-align: center;
+    }
 }
 
 // change spacing and margin of special title element
 .title {
-	margin-bottom: 24px;
-	h1,small {
-		padding-left: 0;
-		padding-right: 0;
-	}
-	h1,h2,h3,h4,h5,h6 {
-		margin-bottom: 2px;
-	}
+    margin-bottom: 24px;
+
+    h1,
+    small {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 2px;
+    }
 }
 
 .about {
-	padding: 48px 24px;
-	text-align: center;
-	.logotype {
-		display: inline-block;
-		h1 {
-			cursor: default;
-			position: relative;
-			font-size: 96px;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			word-spacing: 30px;
-			opacity: 0;
-			animation: 1s animate-fade-in forwards;
-			animation-delay: 0.1s;
-			@media screen and (max-width: $desktop) {
-				font-size: 96px;
-			}
-			@media screen and (max-width: $tablet) {
-				font-size: 56px;
-			}
-			@media screen and (max-width: $mobile) {
-				font-size: 48px;
-			}
-		}
-	}
+    padding: 48px 24px;
+    text-align: center;
+
+    .logotype {
+        display: inline-block;
+
+        h1 {
+            cursor: default;
+            position: relative;
+            font-size: 96px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            word-spacing: 30px;
+            opacity: 0;
+            animation: 1s animate-fade-in forwards;
+            animation-delay: 0.1s;
+
+            @media screen and (max-width: $desktop) {
+                font-size: 96px;
+            }
+
+            @media screen and (max-width: $tablet) {
+                font-size: 56px;
+            }
+
+            @media screen and (max-width: $mobile) {
+                font-size: 48px;
+            }
+        }
+    }
 }
 
 .projects {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
-	grid-row-gap: 16px;
-	grid-gap: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 16px;
+    grid-gap: 16px;
 
-	.project {
-		height: 450px;
-		&:nth-child(6n+1) {
-			grid-column-end: span 3;
-		}
-		&:nth-child(6n+2) {
-			grid-column-end: span 2;
-		}
-		&:nth-child(6n+3) {
-			grid-column-end: span 5;
-		}
-		&:nth-child(6n+4) {
-			grid-column-end: span 2;
-		}
-		&:nth-child(6n+5) {
-			grid-column-end: span 3;
-		}
-		&:nth-child(6n+6) {
-			grid-column-end: span 5;
-		}
-	}
+    .project {
+        height: 450px;
 
-	@media screen and (max-width: 1150px) {
-		grid-template-columns: 100%;
-		grid-gap: 0;
-		
-		.project {
-			grid-column-start: 1;
-			grid-column-end: span 5;
-			height: 350px;
-		} 
-	}
-	
+        &:nth-child(6n+1) {
+            grid-column-end: span 3;
+        }
+
+        &:nth-child(6n+2) {
+            grid-column-end: span 2;
+        }
+
+        &:nth-child(6n+3) {
+            grid-column-end: span 5;
+        }
+
+        &:nth-child(6n+4) {
+            grid-column-end: span 2;
+        }
+
+        &:nth-child(6n+5) {
+            grid-column-end: span 3;
+        }
+
+        &:nth-child(6n+6) {
+            grid-column-end: span 5;
+        }
+    }
+
+    @media screen and (max-width: 1150px) {
+        grid-template-columns: 100%;
+        grid-gap: 0;
+
+        .project {
+            grid-column-start: 1;
+            grid-column-end: span 5;
+            height: 350px;
+        }
+    }
+
 }
 
 .experiment {
-	background: no-repeat center center; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	height: 100%;
-	position: relative;
-	overflow: hidden;
-	transform: translateZ(0);
-	border-radius: $round;
-	@media screen and (max-width: $mobile) {
-		border-radius: 0 !important;
-	}
-	// TODO: make zoom image
-	// cursor: pointer;
-	.popup {
-		.center {
-			h1 {
-				@media screen and (max-width: $tablet) {
-					font-size: 36px;
-				}
-				@media screen and (max-width: $mobile) {
-					font-size: 36px;
-				}
-			}
-		}
-	}
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    border-radius: $round;
+
+    @media screen and (max-width: $mobile) {
+        border-radius: 0 !important;
+    }
+
+    // TODO: make zoom image
+    // cursor: pointer;
+    .popup {
+        .center {
+            h1 {
+                @media screen and (max-width: $tablet) {
+                    font-size: 36px;
+                }
+
+                @media screen and (max-width: $mobile) {
+                    font-size: 36px;
+                }
+            }
+        }
+    }
 }
 
-.project, .experiment {
-	text-decoration: none;
-	display: block;
-	width: 100%; 
-	padding: 0 !important;
-	position: relative;
+.project,
+.experiment {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 0 !important;
+    position: relative;
 
-	.popup {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		position: relative;
-	
-		transition: background 0.3s ease;
-		height: 100%;
-		background: rgba(0,0,0,0);
-		&:hover {
-			background-color: rgba(0,0,0,0.4);
-			h1, .center {
-				opacity: 1;
-			}
-			.video-fader {
-				background-color: rgba(0,0,0,0.4);
-			}
-		}
-		h1, .center {
-			width: 100%;
-			z-index: 100;
-			color: white;
-			text-align: center;
-			margin: 0;
-			opacity: 0;
-			transition: opacity 0.3s ease;
-			> * { color: white; }
-		}
-		video {
-			position: absolute;
-			height: 100%;
-			margin: 0;
-			@media screen and (max-width: $mobile) {
-				border-radius: 0 !important;
-			}
-		}
-	}
-	
-	.thumb {
-		width: 100%;
-		background: no-repeat center center; 
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		height: 100%;
-		border-radius: $round;
-		@media screen and (max-width: $max-size) {
-			border-radius: 0 !important;
-		}
-		overflow: hidden;
-		.video-fader {
-			z-index: 75;
-			width: 100%;
-			height: 100%;
-			position: absolute;
-		}
-	}
+    .popup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+
+        transition: background 0.3s ease;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+
+            h1,
+            .center {
+                opacity: 1;
+            }
+
+            .video-fader {
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        h1,
+        .center {
+            width: 100%;
+            z-index: 100;
+            color: white;
+            text-align: center;
+            margin: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            >* {
+                color: white;
+            }
+        }
+
+        video {
+            position: absolute;
+            height: 100%;
+            margin: 0;
+
+            @media screen and (max-width: $mobile) {
+                border-radius: 0 !important;
+            }
+        }
+    }
+
+    .thumb {
+        width: 100%;
+        background: no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 100%;
+        border-radius: $round;
+
+        @media screen and (max-width: $max-size) {
+            border-radius: 0 !important;
+        }
+
+        overflow: hidden;
+
+        .video-fader {
+            z-index: 75;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    }
 }
 
 // ------------------------------------------
@@ -694,13 +854,15 @@ hr {
 
 // change position of bulletpoints depending on
 // size of the screen
-ol, li {
-	@media (max-width: $mobile){
-		text-indent: 1.5em;
-		&:before {
-			left: -1.5em;
-		}
-	}
+ol,
+li {
+    @media (max-width: $mobile) {
+        text-indent: 1.5em;
+
+        &:before {
+            left: -1.5em;
+        }
+    }
 }
 
 
@@ -709,45 +871,50 @@ ol, li {
 // ------------------------------------------
 
 // body type mutations
-p, li, nav {
-	&.large {
-		font-size: 24px;
-	}
+p,
+li,
+nav {
+    &.large {
+        font-size: 24px;
+    }
 }
 
 // remove a default box-shadow
 .noshadow {
-	box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 // dont apply box shadow to album images
 .album {
-	.zoom, .video {
-		box-shadow: none;
-	}
+
+    .zoom,
+    .video {
+        box-shadow: none;
+    }
 }
 
 // themes scrim js 
-.scrim-container{
-	height: calc(100vh - 74px);
-	width: 100px;
-	position: fixed;
-	left: 0px;
-	bottom: 0px;
+.scrim-container {
+    height: calc(100vh - 74px);
+    width: 100px;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
 }
 
 // themes for medium zoom js
-.zoom, video {
-	box-shadow: 4px 5px 60px 0px rgba(0,0,0,0.1);
+.zoom,
+video {
+    box-shadow: 4px 5px 60px 0px rgba(0, 0, 0, 0.1);
 }
 
-.medium-zoom-overlay{
-	z-index: 200;
-	background-color: rgba(0,0,0,0.9) !important;
+.medium-zoom-overlay {
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
-.medium-zoom-image--open{
-	z-index: 300;
+.medium-zoom-image--open {
+    z-index: 300;
 }
 
 // ------------------------------------------
@@ -755,27 +922,49 @@ p, li, nav {
 // ------------------------------------------
 
 @keyframes animate-fade-out {
-	0%   { opacity: 100%; }
-	100% { opacity: 0%; }
+    0% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
 }
 
 @keyframes animate-fade-in {
-	0%   { opacity: 0; }
-	100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes animate-upwards {
-	0%   { top: 50px; opacity: 0; }
-	100% { top: 0px; opacity: 1; }
+    0% {
+        top: 50px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 0px;
+        opacity: 1;
+    }
 }
 
 // ------------------------------------------
 //       AUDIT (Do we need these?)                   
 // ------------------------------------------
-h1,h2,h3,h4,h5,h6 {
-	span {
-		opacity: 0;
-		position: relative;
-		display: inline-block;
-	}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    span {
+        opacity: 0;
+        position: relative;
+        display: inline-block;
+    }
 }

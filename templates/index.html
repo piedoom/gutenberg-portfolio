@@ -17,6 +17,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700" rel="stylesheet">
 
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js"></script>
   <script type="text/javascript" src="/js/rustish.js"></script>
   <script type="text/javascript" src="/js/appear.min.js"></script>
   <script type="text/javascript" src="/js/zenscroll-min.js"></script>
@@ -26,7 +27,18 @@
   <script type="text/javascript" src="/js/anime.min.js"></script>
   <script type="text/javascript" src="/js/animate.js"></script>
   <script type="text/javascript" src="/js/chart.min.js"></script>
-  <script type="text/javascript" src="/js/main.js"></script> {% if config.extra.portfolio_tracking_id %}
+  <script type="text/javascript" src="/js/main.js"></script> 
+  
+  <script>
+    window.addEventListener("load", function() {
+      var lazyLoadInstance = new LazyLoad({
+          elements_selector: ".lazy"
+        });
+    });
+    
+  </script>
+  
+  {% if config.extra.portfolio_tracking_id %}
   <!-- tracking script -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{config.extra.portfolio_tracking_id}}"></script>
   <script>
@@ -35,7 +47,8 @@
     gtag('js', new Date());
 
     gtag('config', '{{config.extra.portfolio_tracking_id}}');
-  </script> {% endif %}
+  </script> 
+  {% endif %}
 
 </head>
 
@@ -88,7 +101,7 @@
         <!-- video, if available -->
         <div class="popup">
           {% if project.extra.video %}
-          <video src="/media/projects/{{project.extra.video}}" autoplay muted loop></video>
+          <video class="lazy" data-src="/media/projects/{{project.extra.video}}" autoplay muted loop><source type="video/mp4" data-src="/media/projects/{{project.extra.video}}"></video>
           <div class="video-fader"></div>
           {% endif %} {% if project.extra.no_title_on_hover %} {% else %}
           <h1>{{project.title}}</h1> {% endif %}
@@ -105,7 +118,7 @@
     <div class="dg-container dg-square">
       {% for page in experiments.pages %}
       <a href="{{page.permalink}}" target="_blank" class="dg-el dg-span-4">
-        <div class="experiment" {% if page.extra.thumb | split(pat='.' ) | last !='mp4' %} style="background-image: url('/media/experiments/{{page.extra.thumb}}')"
+        <div class="experiment lazy" {% if page.extra.thumb | split(pat='.' ) | last !='mp4' %} data-bg="url(/media/experiments/{{page.extra.thumb}})"
           {% endif %}>
           <div class="thumb">
             <div class="popup">
