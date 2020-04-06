@@ -49,7 +49,10 @@
     gtag('config', '{{config.extra.portfolio_tracking_id}}');
   </script> 
   {% endif %}
-
+  
+  {% if config.extra.portfolio_ackee_id %}
+  <script async src="https://cdn.jsdelivr.net/npm/ackee-tracker@3/dist/ackee-tracker.min.js" data-ackee-server="{{config.extra.portfolio_ackee_server}}" data-ackee-domain-id="{{config.extra.portfolio_ackee_id}}"></script>
+  {% endif %}
 </head>
 
 <body {% if config.extra.theme %}class='{{config.extra.theme}}' {% endif %}>
