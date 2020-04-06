@@ -11,6 +11,8 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 portfolio_tracking_id = "UA-123456-4"
+# portfolio_ackee_id = ""
+# portfolio_ackee_server = ""
 # theme = "dark"
 portfolio_name = "Alexander Lozada"
 portfolio_description = "Hi"
